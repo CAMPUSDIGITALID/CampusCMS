@@ -1,14 +1,14 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Facades\Excel;
-use Ajifatur\FaturCMS\Exports\AbsensiExport;
-use Ajifatur\FaturCMS\Models\Absensi;
+use Campusdigital\CampusCMS\Exports\AbsensiExport;
+use Campusdigital\CampusCMS\Models\Absensi;
 
 class AbsensiController extends Controller
 {

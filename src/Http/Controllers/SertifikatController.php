@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use PDF;
@@ -10,9 +10,9 @@ use Illuminate\Validation\Rule;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\Pelatihan;
-use Ajifatur\FaturCMS\Models\PelatihanMember;
-use Ajifatur\FaturCMS\Models\Signature;
+use Campusdigital\CampusCMS\Models\Pelatihan;
+use Campusdigital\CampusCMS\Models\PelatihanMember;
+use Campusdigital\CampusCMS\Models\Signature;
 
 class SertifikatController extends Controller
 {

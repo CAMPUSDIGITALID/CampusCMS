@@ -1,34 +1,34 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers\API;
+namespace Campusdigital\CampusCMS\Http\Controllers\API;
 
-use Ajifatur\FaturCMS\Http\Controllers\Controller;
+use Campusdigital\CampusCMS\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\Acara;
-use Ajifatur\FaturCMS\Models\Blog;
-use Ajifatur\FaturCMS\Models\Cabang;
-use Ajifatur\FaturCMS\Models\Email;
-use Ajifatur\FaturCMS\Models\Files;
-use Ajifatur\FaturCMS\Models\Fitur;
-use Ajifatur\FaturCMS\Models\Halaman;
-use Ajifatur\FaturCMS\Models\Karir;
-use Ajifatur\FaturCMS\Models\Komisi;
-use Ajifatur\FaturCMS\Models\Mentor;
-use Ajifatur\FaturCMS\Models\Mitra;
-use Ajifatur\FaturCMS\Models\Pelatihan;
-use Ajifatur\FaturCMS\Models\PelatihanMember;
-use Ajifatur\FaturCMS\Models\Platform;
-use Ajifatur\FaturCMS\Models\Popup;
-use Ajifatur\FaturCMS\Models\Program;
-use Ajifatur\FaturCMS\Models\Psikolog;
-use Ajifatur\FaturCMS\Models\Rekening;
-use Ajifatur\FaturCMS\Models\Signature;
-use Ajifatur\FaturCMS\Models\Slider;
-use Ajifatur\FaturCMS\Models\Testimoni;
-use Ajifatur\FaturCMS\Models\Visitor;
-use Ajifatur\FaturCMS\Models\Withdrawal;
+use Campusdigital\CampusCMS\Models\Acara;
+use Campusdigital\CampusCMS\Models\Blog;
+use Campusdigital\CampusCMS\Models\Cabang;
+use Campusdigital\CampusCMS\Models\Email;
+use Campusdigital\CampusCMS\Models\Files;
+use Campusdigital\CampusCMS\Models\Fitur;
+use Campusdigital\CampusCMS\Models\Halaman;
+use Campusdigital\CampusCMS\Models\Karir;
+use Campusdigital\CampusCMS\Models\Komisi;
+use Campusdigital\CampusCMS\Models\Mentor;
+use Campusdigital\CampusCMS\Models\Mitra;
+use Campusdigital\CampusCMS\Models\Pelatihan;
+use Campusdigital\CampusCMS\Models\PelatihanMember;
+use Campusdigital\CampusCMS\Models\Platform;
+use Campusdigital\CampusCMS\Models\Popup;
+use Campusdigital\CampusCMS\Models\Program;
+use Campusdigital\CampusCMS\Models\Psikolog;
+use Campusdigital\CampusCMS\Models\Rekening;
+use Campusdigital\CampusCMS\Models\Signature;
+use Campusdigital\CampusCMS\Models\Slider;
+use Campusdigital\CampusCMS\Models\Testimoni;
+use Campusdigital\CampusCMS\Models\Visitor;
+use Campusdigital\CampusCMS\Models\Withdrawal;
 
 class ReportController extends Controller
 {

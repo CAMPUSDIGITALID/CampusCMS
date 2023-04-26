@@ -1,11 +1,11 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Commands;
+namespace Campusdigital\CampusCMS\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\Process\Process;
-use Ajifatur\FaturCMS\FaturCMSServiceProvider;
+use Campusdigital\CampusCMS\FaturCMSServiceProvider;
 
 class MainCommand extends Command
 {
@@ -14,7 +14,7 @@ class MainCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'faturcms:main';
+    protected $signature = 'campuscms:main';
 
     /**
      * The console command description.
@@ -69,11 +69,11 @@ class MainCommand extends Command
         file_replace_contents(
             '',
             base_path('routes/web.php'),
-            '\Ajifatur\FaturCMS\FaturCMS::routes();',
+            '\Campusdigital\CampusCMS\FaturCMS::routes();',
             "\n".
             "// Letakkan fungsi ini pada route paling atas".
             "\n".
-            "\Ajifatur\FaturCMS\FaturCMS::routes();".
+            "\Campusdigital\CampusCMS\FaturCMS::routes();".
             "\n"
         );
 
@@ -82,10 +82,10 @@ class MainCommand extends Command
         file_replace_contents(
             '',
             base_path('routes/api.php'),
-            '\Ajifatur\FaturCMS\FaturCMS::APIroutes();',
+            '\Campusdigital\CampusCMS\FaturCMS::APIroutes();',
             "\n".
             "\n".
-            "\Ajifatur\FaturCMS\FaturCMS::APIroutes();".
+            "\Campusdigital\CampusCMS\FaturCMS::APIroutes();".
             "\n"
         );
 

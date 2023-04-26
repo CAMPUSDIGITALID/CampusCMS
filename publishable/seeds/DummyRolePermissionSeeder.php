@@ -1,10 +1,10 @@
 <?php
 
-namespace Ajifatur\FaturCMS\DummySeeder;
+namespace Campusdigital\CampusCMS\DummySeeder;
 
 use Illuminate\Database\Seeder;
-use Ajifatur\FaturCMS\Models\Permission;
-use Ajifatur\FaturCMS\Models\RolePermission;
+use Campusdigital\CampusCMS\Models\Permission;
+use Campusdigital\CampusCMS\Models\RolePermission;
 
 class DummyRolePermissionSeeder extends Seeder
 {

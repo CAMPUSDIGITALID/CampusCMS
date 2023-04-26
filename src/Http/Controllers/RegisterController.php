@@ -1,17 +1,17 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use Ajifatur\FaturCMS\Mails\EmailVerificationMail;
+use Campusdigital\CampusCMS\Mails\EmailVerificationMail;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\KategoriUser;
-use Ajifatur\FaturCMS\Models\Komisi;
-use Ajifatur\FaturCMS\Models\Setting;
+use Campusdigital\CampusCMS\Models\KategoriUser;
+use Campusdigital\CampusCMS\Models\Komisi;
+use Campusdigital\CampusCMS\Models\Setting;
 
 class RegisterController extends Controller
 {

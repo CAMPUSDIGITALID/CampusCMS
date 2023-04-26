@@ -1,14 +1,14 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Ajifatur\FaturCMS\Models\DefaultRekening;
-use Ajifatur\FaturCMS\Models\Platform;
-use Ajifatur\FaturCMS\Models\Rekening;
+use Campusdigital\CampusCMS\Models\DefaultRekening;
+use Campusdigital\CampusCMS\Models\Platform;
+use Campusdigital\CampusCMS\Models\Rekening;
 
 class DefaultRekeningController extends Controller
 {

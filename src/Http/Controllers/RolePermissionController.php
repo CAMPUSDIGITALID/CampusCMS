@@ -1,14 +1,14 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Ajifatur\FaturCMS\Models\Permission;
-use Ajifatur\FaturCMS\Models\Role;
-use Ajifatur\FaturCMS\Models\RolePermission;
+use Campusdigital\CampusCMS\Models\Permission;
+use Campusdigital\CampusCMS\Models\Role;
+use Campusdigital\CampusCMS\Models\RolePermission;
 
 class RolePermissionController extends Controller
 {

@@ -40,15 +40,15 @@ use GuzzleHttp\Exception\ClientException;
 use hisorange\BrowserDetect\Parser as Browser;
 use Stevebauman\Location\Facades\Location;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\KategoriArtikel;
-use Ajifatur\FaturCMS\Models\KategoriPelatihan;
-use Ajifatur\FaturCMS\Models\KategoriSetting;
-use Ajifatur\FaturCMS\Models\Permission;
-use Ajifatur\FaturCMS\Models\Role;
-use Ajifatur\FaturCMS\Models\RolePermission;
-use Ajifatur\FaturCMS\Models\Setting;
-use Ajifatur\FaturCMS\Models\Tag;
-use Ajifatur\FaturCMS\Models\UserSetting;
+use Campusdigital\CampusCMS\Models\KategoriArtikel;
+use Campusdigital\CampusCMS\Models\KategoriPelatihan;
+use Campusdigital\CampusCMS\Models\KategoriSetting;
+use Campusdigital\CampusCMS\Models\Permission;
+use Campusdigital\CampusCMS\Models\Role;
+use Campusdigital\CampusCMS\Models\RolePermission;
+use Campusdigital\CampusCMS\Models\Setting;
+use Campusdigital\CampusCMS\Models\Tag;
+use Campusdigital\CampusCMS\Models\UserSetting;
 
 // Get has access
 if(!function_exists('has_access')){

@@ -1,13 +1,13 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Commands;
+namespace Campusdigital\CampusCMS\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\Process\Process;
-use Ajifatur\FaturCMS\FaturCMSServiceProvider;
+use Campusdigital\CampusCMS\FaturCMSServiceProvider;
 
 class UpdateCommand extends Command
 {
@@ -16,14 +16,14 @@ class UpdateCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'faturcms:update';
+    protected $signature = 'campuscms:update';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Update FaturCMS package';
+    protected $description = 'Update campuscms package';
 
     /**
      * Create a new command instance.
@@ -43,7 +43,7 @@ class UpdateCommand extends Command
     public function handle(Filesystem $filesystem)
     {
         // First info
-        $this->info('Updating FaturCMS package');
+        $this->info('Updating FatcampuscmsurCMS package');
 
         // Copy assets
         $this->info('Copying Assets');
@@ -64,7 +64,7 @@ class UpdateCommand extends Command
         }
 
         // Run main command
-        $this->call('faturcms:main');
+        $this->call('campuscms:main');
 
         // Composer dump autoload
         $composer = new Composer($filesystem);
@@ -77,6 +77,6 @@ class UpdateCommand extends Command
         $this->call('db:seed');
 
         // Last info
-        $this->info('Successfully updating FaturCMS! Enjoy');
+        $this->info('Successfully updating campuscms! Enjoy');
     }
 }

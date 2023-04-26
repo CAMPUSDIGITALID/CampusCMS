@@ -1,12 +1,12 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Ajifatur\FaturCMS\Models\Platform;
+use Campusdigital\CampusCMS\Models\Platform;
 
 class PlatformController extends Controller
 {

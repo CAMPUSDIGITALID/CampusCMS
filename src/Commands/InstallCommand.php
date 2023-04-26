@@ -1,13 +1,13 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Commands;
+namespace Campusdigital\CampusCMS\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\Process\Process;
-use Ajifatur\FaturCMS\FaturCMSServiceProvider;
+use Campusdigital\CampusCMS\FaturCMSServiceProvider;
 
 class InstallCommand extends Command
 {
@@ -16,14 +16,14 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'faturcms:install';
+    protected $signature = 'campuscms:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install FaturCMS package';
+    protected $description = 'Install campuscms package';
 
     /**
      * Create a new command instance.
@@ -43,7 +43,7 @@ class InstallCommand extends Command
     public function handle(Filesystem $filesystem)
     {
         // First info
-        $this->info('Installing FaturCMS package');
+        $this->info('Installing campuscms package');
 
         // Publish assets and templates
         $this->call('vendor:publish', ['--provider' => FaturCMSServiceProvider::class, '--tag' => 'assets']);
@@ -63,7 +63,7 @@ class InstallCommand extends Command
         }
 
         // Run main command
-        $this->call('faturcms:main');
+        $this->call('campuscms:main');
 
         // Composer dump autoload
         $composer = new Composer($filesystem);
@@ -76,7 +76,7 @@ class InstallCommand extends Command
         $this->call('db:seed');
 
         // Seed dummy data
-        $this->call('db:seed', ['--class' => \Ajifatur\FaturCMS\DummySeeder\InstallDummySeeder::class]);
+        // $this->call('db:seed', ['--class' => \Campusdigital\CampusCMS\DummySeeder\InstallDummySeeder::class]);
 
         // Last info
         $this->info('Successfully installing FaturCMS! Enjoy');

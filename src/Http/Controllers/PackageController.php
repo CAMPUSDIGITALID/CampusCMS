@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
@@ -10,7 +10,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Exception\ClientException;
-use Ajifatur\FaturCMS\Models\Package;
+use Campusdigital\CampusCMS\Models\Package;
 
 class PackageController extends Controller
 {

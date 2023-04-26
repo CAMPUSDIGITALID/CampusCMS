@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\Facades\DataTables;
 use Maatwebsite\Excel\Facades\Excel;
-use Ajifatur\FaturCMS\Imports\EmailImport;
-use Ajifatur\FaturCMS\Mails\MessageMail;
+use Campusdigital\CampusCMS\Imports\EmailImport;
+use Campusdigital\CampusCMS\Mails\MessageMail;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\Email;
+use Campusdigital\CampusCMS\Models\Email;
 
 class EmailController extends Controller
 {

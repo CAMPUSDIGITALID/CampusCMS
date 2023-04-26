@@ -1,16 +1,16 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Ajifatur\FaturCMS\Models\Files;
-use Ajifatur\FaturCMS\Models\FileDetail;
-use Ajifatur\FaturCMS\Models\Folder;
-use Ajifatur\FaturCMS\Models\FolderKategori;
+use Campusdigital\CampusCMS\Models\Files;
+use Campusdigital\CampusCMS\Models\FileDetail;
+use Campusdigital\CampusCMS\Models\Folder;
+use Campusdigital\CampusCMS\Models\FolderKategori;
 
 class FolderController extends Controller
 {

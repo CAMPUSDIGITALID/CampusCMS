@@ -1,9 +1,9 @@
 <?php
 
-namespace Ajifatur\FaturCMS\DummySeeder;
+namespace Campusdigital\CampusCMS\DummySeeder;
 
 use Illuminate\Database\Seeder;
-use Ajifatur\FaturCMS\Models\KategoriArtikel;
+use Campusdigital\CampusCMS\Models\KategoriArtikel;
 
 class DummyKategoriArtikelSeeder extends Seeder
 {

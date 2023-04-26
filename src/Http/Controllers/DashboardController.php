@@ -1,28 +1,28 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\Acara;
-use Ajifatur\FaturCMS\Models\Blog;
-use Ajifatur\FaturCMS\Models\Deskripsi;
-use Ajifatur\FaturCMS\Models\DefaultRekening;
-use Ajifatur\FaturCMS\Models\Email;
-use Ajifatur\FaturCMS\Models\Files;
-use Ajifatur\FaturCMS\Models\Fitur;
-use Ajifatur\FaturCMS\Models\FolderKategori;
-use Ajifatur\FaturCMS\Models\Halaman;
-use Ajifatur\FaturCMS\Models\Karir;
-use Ajifatur\FaturCMS\Models\Komisi;
-use Ajifatur\FaturCMS\Models\Pelatihan;
-use Ajifatur\FaturCMS\Models\PelatihanMember;
-use Ajifatur\FaturCMS\Models\Popup;
-use Ajifatur\FaturCMS\Models\Program;
-use Ajifatur\FaturCMS\Models\Psikolog;
-use Ajifatur\FaturCMS\Models\Signature;
-use Ajifatur\FaturCMS\Models\Withdrawal;
+use Campusdigital\CampusCMS\Models\Acara;
+use Campusdigital\CampusCMS\Models\Blog;
+use Campusdigital\CampusCMS\Models\Deskripsi;
+use Campusdigital\CampusCMS\Models\DefaultRekening;
+use Campusdigital\CampusCMS\Models\Email;
+use Campusdigital\CampusCMS\Models\Files;
+use Campusdigital\CampusCMS\Models\Fitur;
+use Campusdigital\CampusCMS\Models\FolderKategori;
+use Campusdigital\CampusCMS\Models\Halaman;
+use Campusdigital\CampusCMS\Models\Karir;
+use Campusdigital\CampusCMS\Models\Komisi;
+use Campusdigital\CampusCMS\Models\Pelatihan;
+use Campusdigital\CampusCMS\Models\PelatihanMember;
+use Campusdigital\CampusCMS\Models\Popup;
+use Campusdigital\CampusCMS\Models\Program;
+use Campusdigital\CampusCMS\Models\Psikolog;
+use Campusdigital\CampusCMS\Models\Signature;
+use Campusdigital\CampusCMS\Models\Withdrawal;
 
 class DashboardController extends Controller
 {

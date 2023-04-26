@@ -1,13 +1,13 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Console;
+namespace Campusdigital\CampusCMS\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use App\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use Ajifatur\FaturCMS\Mails\MessageMail;
-use Ajifatur\FaturCMS\Models\Email;
+use Campusdigital\CampusCMS\Mails\MessageMail;
+use Campusdigital\CampusCMS\Models\Email;
 use App\Models\User;
 
 class Kernel extends ConsoleKernel

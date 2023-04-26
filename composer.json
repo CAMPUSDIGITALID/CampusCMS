@@ -1,6 +1,6 @@
 {
-    "name": "campusdatamedia/faturcms",
-    "description": "Solusi CMS dengan Fitur Referral Terbaik",
+    "name": "campusdigital/campuscms",
+    "description": "Pengembangan ulang dari FaturCMS",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -11,18 +11,22 @@
         {
             "name": "praseetyaa",
             "email": "praseetyaa@gmail.com"
+        },
+        {
+            "name": "wahana",
+            "email": "alfinsihab1@gmail.com"
         }
     ],
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Ajifatur\\FaturCMS\\": "src/"
+            "Campusdigital\\CampusCMS\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Ajifatur\\FaturCMS\\FaturCMSServiceProvider"
+                "Campusdigital\\CampusCMS\\FaturCMSServiceProvider"
             ]
         }
     },

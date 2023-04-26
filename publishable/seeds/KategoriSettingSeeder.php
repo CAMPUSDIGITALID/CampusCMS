@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Ajifatur\FaturCMS\Models\KategoriSetting;
+use Campusdigital\CampusCMS\Models\KategoriSetting;
 
 class KategoriSettingSeeder extends Seeder
 {

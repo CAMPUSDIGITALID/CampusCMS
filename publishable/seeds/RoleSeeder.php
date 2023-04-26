@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Ajifatur\FaturCMS\Models\Role;
+use Campusdigital\CampusCMS\Models\Role;
 
 class RoleSeeder extends Seeder
 {

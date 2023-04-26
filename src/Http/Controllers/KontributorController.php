@@ -1,13 +1,13 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\Kontributor;
+use Campusdigital\CampusCMS\Models\Kontributor;
 
 class KontributorController extends Controller
 {

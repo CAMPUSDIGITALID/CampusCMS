@@ -1,15 +1,15 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers\API;
+namespace Campusdigital\CampusCMS\Http\Controllers\API;
 
-use Ajifatur\FaturCMS\Http\Controllers\Controller;
+use Campusdigital\CampusCMS\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
-use Ajifatur\FaturCMS\Models\Files;
-use Ajifatur\FaturCMS\Models\PelatihanMember;
-use Ajifatur\FaturCMS\Models\Visitor;
+use Campusdigital\CampusCMS\Models\Files;
+use Campusdigital\CampusCMS\Models\PelatihanMember;
+use Campusdigital\CampusCMS\Models\Visitor;
 
 class ByKelompokController extends Controller
 {

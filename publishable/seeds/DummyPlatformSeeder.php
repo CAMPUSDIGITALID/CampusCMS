@@ -1,9 +1,9 @@
 <?php
 
-namespace Ajifatur\FaturCMS\DummySeeder;
+namespace Campusdigital\CampusCMS\DummySeeder;
 
 use Illuminate\Database\Seeder;
-use Ajifatur\FaturCMS\Models\Platform;
+use Campusdigital\CampusCMS\Models\Platform;
 
 class DummyPlatformSeeder extends Seeder
 {

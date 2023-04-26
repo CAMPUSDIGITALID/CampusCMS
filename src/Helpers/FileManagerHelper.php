@@ -1,8 +1,8 @@
 <?php
 
-use Ajifatur\FaturCMS\Models\Files;
-use Ajifatur\FaturCMS\Models\Folder;
-use Ajifatur\FaturCMS\Models\FolderKategori;
+use Campusdigital\CampusCMS\Models\Files;
+use Campusdigital\CampusCMS\Models\Folder;
+use Campusdigital\CampusCMS\Models\FolderKategori;
 
 // Generate file name
 if(!function_exists('generate_file_name')){

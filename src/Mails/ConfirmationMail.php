@@ -1,13 +1,13 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Mails;
+namespace Campusdigital\CampusCMS\Mails;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\Komisi;
+use Campusdigital\CampusCMS\Models\Komisi;
 
 class ConfirmationMail extends Mailable
 {

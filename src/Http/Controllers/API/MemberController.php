@@ -1,8 +1,8 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers\API;
+namespace Campusdigital\CampusCMS\Http\Controllers\API;
 
-use Ajifatur\FaturCMS\Http\Controllers\Controller;
+use Campusdigital\CampusCMS\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajifatur\FaturCMS\DummySeeder;
+namespace Campusdigital\CampusCMS\DummySeeder;
 
 use Illuminate\Database\Seeder;
 

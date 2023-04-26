@@ -1,14 +1,14 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers\API;
+namespace Campusdigital\CampusCMS\Http\Controllers\API;
 
-use Ajifatur\FaturCMS\Http\Controllers\Controller;
+use Campusdigital\CampusCMS\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\Kelompok;
-use Ajifatur\FaturCMS\Models\PelatihanMember;
-use Ajifatur\FaturCMS\Models\Visitor;
+use Campusdigital\CampusCMS\Models\Kelompok;
+use Campusdigital\CampusCMS\Models\PelatihanMember;
+use Campusdigital\CampusCMS\Models\Visitor;
 
 class GetController extends Controller
 {

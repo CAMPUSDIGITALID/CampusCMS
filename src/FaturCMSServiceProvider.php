@@ -1,14 +1,14 @@
 <?php
 
-namespace Ajifatur\FaturCMS;
+namespace Campusdigital\CampusCMS;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\File;
-use Ajifatur\FaturCMS\Http\Middleware\AdminMiddleware;
-use Ajifatur\FaturCMS\Http\Middleware\MemberMiddleware;
-use Ajifatur\FaturCMS\Http\Middleware\GuestMiddleware;
+use Campusdigital\CampusCMS\Http\Middleware\AdminMiddleware;
+use Campusdigital\CampusCMS\Http\Middleware\MemberMiddleware;
+use Campusdigital\CampusCMS\Http\Middleware\GuestMiddleware;
 
 class FaturCMSServiceProvider extends ServiceProvider
 {
@@ -26,9 +26,9 @@ class FaturCMSServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../migrations');
 
         // Add middlewares
-        $router->aliasMiddleware('faturcms.admin', AdminMiddleware::class);
-        $router->aliasMiddleware('faturcms.member', MemberMiddleware::class);
-        $router->aliasMiddleware('faturcms.guest', GuestMiddleware::class);
+        $router->aliasMiddleware('campuscms.admin', AdminMiddleware::class);
+        $router->aliasMiddleware('campuscms.member', MemberMiddleware::class);
+        $router->aliasMiddleware('campuscms.guest', GuestMiddleware::class);
 		
 		// Use Bootstrap on paginator
 		Paginator::useBootstrap();
@@ -61,7 +61,7 @@ class FaturCMSServiceProvider extends ServiceProvider
         // Register schedule
         $this->app->singleton('ajifatur.faturcms.console.kernel', function($app) {
             $dispatcher = $app->make(\Illuminate\Contracts\Events\Dispatcher::class);
-            return new \Ajifatur\FaturCMS\Console\Kernel($app, $dispatcher);
+            return new \Campusdigital\CampusCMS\Console\Kernel($app, $dispatcher);
         });
         $this->app->make('ajifatur.faturcms.console.kernel');
     }

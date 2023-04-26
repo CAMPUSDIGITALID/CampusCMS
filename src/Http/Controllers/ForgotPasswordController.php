@@ -1,12 +1,12 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use Ajifatur\FaturCMS\Mails\ForgotPasswordMail;
+use Campusdigital\CampusCMS\Mails\ForgotPasswordMail;
 use App\Models\User;
 
 class ForgotPasswordController extends Controller

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Models;
+namespace Campusdigital\CampusCMS\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

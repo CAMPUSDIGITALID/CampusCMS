@@ -1,13 +1,13 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Ajifatur\FaturCMS\Models\Setting;
-use Ajifatur\FaturCMS\Models\UserSetting;
+use Campusdigital\CampusCMS\Models\Setting;
+use Campusdigital\CampusCMS\Models\UserSetting;
 
 class UserSettingController extends Controller
 {

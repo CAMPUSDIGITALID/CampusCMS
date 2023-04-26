@@ -1,10 +1,10 @@
 <?php
 
-namespace Ajifatur\FaturCMS\DummySeeder;
+namespace Campusdigital\CampusCMS\DummySeeder;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\Setting;
+use Campusdigital\CampusCMS\Models\Setting;
 
 class DummyUserSeeder extends Seeder
 {

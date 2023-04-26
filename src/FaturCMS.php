@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajifatur\FaturCMS;
+namespace Campusdigital\CampusCMS;
 
 class FaturCMS
 {

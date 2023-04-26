@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Middleware;
+namespace Campusdigital\CampusCMS\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

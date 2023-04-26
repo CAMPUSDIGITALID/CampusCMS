@@ -1,8 +1,8 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Exports;
+namespace Campusdigital\CampusCMS\Exports;
 
-use Ajifatur\FaturCMS\Models\Absensi;
+use Campusdigital\CampusCMS\Models\Absensi;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\Exportable;

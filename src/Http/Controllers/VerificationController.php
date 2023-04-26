@@ -1,15 +1,15 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Ajifatur\FaturCMS\Mails\RegisterMail;
+use Campusdigital\CampusCMS\Mails\RegisterMail;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\Komisi;
+use Campusdigital\CampusCMS\Models\Komisi;
 
 class VerificationController extends Controller
 {

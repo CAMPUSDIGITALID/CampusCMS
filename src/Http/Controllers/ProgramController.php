@@ -1,13 +1,13 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Ajifatur\FaturCMS\Models\Program;
-use Ajifatur\FaturCMS\Models\KategoriProgram;
+use Campusdigital\CampusCMS\Models\Program;
+use Campusdigital\CampusCMS\Models\KategoriProgram;
 
 class ProgramController extends Controller
 {

@@ -15,8 +15,11 @@
 $namespacePrefix = '\\'.config('faturcms.controllers.namespace').'\\';
 
 // Guest Capabilities
-Route::group(['middleware' => ['faturcms.guest']], function() use ($namespacePrefix){
+Route::group(['middleware' => ['campuscms.guest']], function() use ($namespacePrefix){
 	// Cek Sertifikat
+	Route::get('cek', function(){
+		return 'cek apakah masuk';
+	});
 	Route::get('/check-certificate/{id}', $namespacePrefix.'SertifikatController@check')->name('site.check-certificate');
 
 	// Login
@@ -36,7 +39,7 @@ Route::group(['middleware' => ['faturcms.guest']], function() use ($namespacePre
 });
 
 // Admin Capabilities
-Route::group(['middleware' => ['faturcms.admin']], function() use ($namespacePrefix){
+Route::group(['middleware' => ['campuscms.admin']], function() use ($namespacePrefix){
 	// Logout
 	Route::post('/admin/logout', $namespacePrefix.'LoginController@logout')->name('admin.logout');
 
@@ -489,7 +492,7 @@ Route::group(['middleware' => ['faturcms.admin']], function() use ($namespacePre
 });
 
 // Member Capabilities
-Route::group(['middleware' => ['faturcms.member']], function() use ($namespacePrefix){
+Route::group(['middleware' => ['campuscms.member']], function() use ($namespacePrefix){
 	// Logout
 	Route::post('/member/logout', $namespacePrefix.'LoginController@logout')->name('member.logout');
 
@@ -513,7 +516,7 @@ Route::group(['middleware' => ['faturcms.member']], function() use ($namespacePr
 
 	// Cara Jualan
 	Route::get('/member/afiliasi/cara-jualan', function(){
-		return view('faturcms::member.afiliasi.cara-jualan');
+		return view('campuscms::member.afiliasi.cara-jualan');
 	})->name('member.afiliasi.carajualan');
 
 	// Komisi

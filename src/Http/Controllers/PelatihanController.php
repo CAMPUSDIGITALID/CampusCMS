@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use PDF;
@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\Facades\DataTables;
-use Ajifatur\FaturCMS\Mails\TrainingPaymentMail;
+use Campusdigital\CampusCMS\Mails\TrainingPaymentMail;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\DefaultRekening;
-use Ajifatur\FaturCMS\Models\KategoriPelatihan;
-use Ajifatur\FaturCMS\Models\Pelatihan;
-use Ajifatur\FaturCMS\Models\PelatihanMember;
+use Campusdigital\CampusCMS\Models\DefaultRekening;
+use Campusdigital\CampusCMS\Models\KategoriPelatihan;
+use Campusdigital\CampusCMS\Models\Pelatihan;
+use Campusdigital\CampusCMS\Models\PelatihanMember;
 
 class PelatihanController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
@@ -8,15 +8,15 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\Facades\DataTables;
 use Maatwebsite\Excel\Facades\Excel;
-use Ajifatur\FaturCMS\Exports\UserExport;
+use Campusdigital\CampusCMS\Exports\UserExport;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\KategoriUser;
-use Ajifatur\FaturCMS\Models\Komisi;
-use Ajifatur\FaturCMS\Models\PelatihanMember;
-use Ajifatur\FaturCMS\Models\ProfilePhoto;
-use Ajifatur\FaturCMS\Models\Rekening;
-use Ajifatur\FaturCMS\Models\Role;
-use Ajifatur\FaturCMS\Models\Withdrawal;
+use Campusdigital\CampusCMS\Models\KategoriUser;
+use Campusdigital\CampusCMS\Models\Komisi;
+use Campusdigital\CampusCMS\Models\PelatihanMember;
+use Campusdigital\CampusCMS\Models\ProfilePhoto;
+use Campusdigital\CampusCMS\Models\Rekening;
+use Campusdigital\CampusCMS\Models\Role;
+use Campusdigital\CampusCMS\Models\Withdrawal;
 
 class UserController extends Controller
 {

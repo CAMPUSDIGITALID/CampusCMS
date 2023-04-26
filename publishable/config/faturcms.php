@@ -8,7 +8,7 @@ return [
     |
     */
 
-    'name' => 'campusdatamedia/faturcms',
+    'name' => 'campusdigital/campuscms',
 
     /*
     |--------------------------------------------------------------------------
@@ -18,7 +18,7 @@ return [
     */
 
     'controllers' => [
-        'namespace' => 'Ajifatur\\FaturCMS\\Http\\Controllers',
+        'namespace' => 'Campusdigitak\\CampusCMS\\Http\\Controllers',
     ],
 
     /*

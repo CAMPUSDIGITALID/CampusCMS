@@ -1,8 +1,8 @@
 <?php
 
-use Ajifatur\FaturCMS\Models\Komentar;
-use Ajifatur\FaturCMS\Models\Pelatihan;
-use Ajifatur\FaturCMS\Models\Tag;
+use Campusdigital\CampusCMS\Models\Komentar;
+use Campusdigital\CampusCMS\Models\Pelatihan;
+use Campusdigital\CampusCMS\Models\Tag;
 
 // Generate materi pelatihan
 if(!function_exists('generate_materi_pelatihan')){

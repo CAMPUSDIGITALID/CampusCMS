@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\Facades\DataTables;
-use Ajifatur\FaturCMS\Mails\ConfirmationMail;
-use Ajifatur\FaturCMS\Mails\VerificationMail;
-use Ajifatur\FaturCMS\Mails\WithdrawalMail;
+use Campusdigital\CampusCMS\Mails\ConfirmationMail;
+use Campusdigital\CampusCMS\Mails\VerificationMail;
+use Campusdigital\CampusCMS\Mails\WithdrawalMail;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\Komisi;
-use Ajifatur\FaturCMS\Models\Rekening;
-use Ajifatur\FaturCMS\Models\Withdrawal;
+use Campusdigital\CampusCMS\Models\Komisi;
+use Campusdigital\CampusCMS\Models\Rekening;
+use Campusdigital\CampusCMS\Models\Withdrawal;
 
 class KomisiController extends Controller
 {

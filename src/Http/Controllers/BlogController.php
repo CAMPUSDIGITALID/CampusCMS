@@ -1,17 +1,17 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\Blog;
-use Ajifatur\FaturCMS\Models\KategoriArtikel;
-use Ajifatur\FaturCMS\Models\Komentar;
-use Ajifatur\FaturCMS\Models\Kontributor;
-use Ajifatur\FaturCMS\Models\Tag;
+use Campusdigital\CampusCMS\Models\Blog;
+use Campusdigital\CampusCMS\Models\KategoriArtikel;
+use Campusdigital\CampusCMS\Models\Komentar;
+use Campusdigital\CampusCMS\Models\Kontributor;
+use Campusdigital\CampusCMS\Models\Tag;
 
 class BlogController extends Controller
 {

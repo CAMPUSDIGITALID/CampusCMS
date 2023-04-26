@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Exports;
+namespace Campusdigital\CampusCMS\Exports;
 
 use App\Models\User;
 use Illuminate\Contracts\View\View;

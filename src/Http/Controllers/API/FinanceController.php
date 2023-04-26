@@ -1,12 +1,12 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers\API;
+namespace Campusdigital\CampusCMS\Http\Controllers\API;
 
-use Ajifatur\FaturCMS\Http\Controllers\Controller;
+use Campusdigital\CampusCMS\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Ajifatur\FaturCMS\Models\Komisi;
-use Ajifatur\FaturCMS\Models\PelatihanMember;
-use Ajifatur\FaturCMS\Models\Withdrawal;
+use Campusdigital\CampusCMS\Models\Komisi;
+use Campusdigital\CampusCMS\Models\PelatihanMember;
+use Campusdigital\CampusCMS\Models\Withdrawal;
 
 class FinanceController extends Controller
 {

@@ -24,16 +24,16 @@
  */
 
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\Blog;
-use Ajifatur\FaturCMS\Models\Files;
-use Ajifatur\FaturCMS\Models\Kelompok;
-use Ajifatur\FaturCMS\Models\Komentar;
-use Ajifatur\FaturCMS\Models\Komisi;
-use Ajifatur\FaturCMS\Models\Package;
-use Ajifatur\FaturCMS\Models\Pelatihan;
-use Ajifatur\FaturCMS\Models\PelatihanMember;
-use Ajifatur\FaturCMS\Models\Visitor;
-use Ajifatur\FaturCMS\Models\Withdrawal;
+use Campusdigital\CampusCMS\Models\Blog;
+use Campusdigital\CampusCMS\Models\Files;
+use Campusdigital\CampusCMS\Models\Kelompok;
+use Campusdigital\CampusCMS\Models\Komentar;
+use Campusdigital\CampusCMS\Models\Komisi;
+use Campusdigital\CampusCMS\Models\Package;
+use Campusdigital\CampusCMS\Models\Pelatihan;
+use Campusdigital\CampusCMS\Models\PelatihanMember;
+use Campusdigital\CampusCMS\Models\Visitor;
+use Campusdigital\CampusCMS\Models\Withdrawal;
 
 // Menghitung semua member aktif
 if(!function_exists('count_member_aktif')){

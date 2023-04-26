@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use Illuminate\Validation\Rule;
 use Stevebauman\Location\Facades\Location;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\User;
-use Ajifatur\FaturCMS\Models\Visitor;
+use Campusdigital\CampusCMS\Models\Visitor;
 
 class VisitorController extends Controller
 {

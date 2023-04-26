@@ -1,12 +1,12 @@
 <?php
 
-namespace Ajifatur\FaturCMS\Http\Controllers;
+namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Ajifatur\FaturCMS\Models\KategoriArtikel;
+use Campusdigital\CampusCMS\Models\KategoriArtikel;
 
 class KategoriArtikelController extends Controller
 {
