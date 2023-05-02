@@ -18,7 +18,7 @@ return [
     */
 
     'controllers' => [
-        'namespace' => 'Campusdigitak\\CampusCMS\\Http\\Controllers',
+        'namespace' => 'Campusdigital\\CampusCMS\\Http\\Controllers',
     ],
 
     /*
