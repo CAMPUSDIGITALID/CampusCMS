@@ -44,7 +44,7 @@
                         <p><em>Drag (geser) konten di bawah ini untuk mengurutkan dari yang teratas sampai terbawah.</em></p>
                         <div class="row sortable">
                             @foreach($mentor as $data)
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-md-4 col-sm-6 mb-3">
                                     <div class="card sortable-item" data-id="{{ $data->id_mentor }}">
                                         <div class="card-body text-center">
                                             <a class="btn-magnify-popup" href="{{ image('assets/images/mentor/'.$data->foto_mentor, 'mentor') }}" title="{{ $data->nama_mentor }}">
@@ -54,7 +54,7 @@
                                             <p class="mb-0">{{ $data->profesi_mentor }}</p>
                                         </div>
                                         <div class="card-footer d-flex justify-content-between">
-                                            <a href="{{ route('admin.mentor.edit', ['id' => $data->id_mentor]) }}" class="btn btn-sm btn-warning" title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a>
+                                            <a href="{{ route('admin.mentor.edit', ['id' => $data->id_mentor]) }}" class="btn btn-sm btn-info" title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a>
                                             <a href="#" class="btn btn-sm btn-danger btn-delete" title="Hapus" data-id="{{ $data->id_mentor }}" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </div>
