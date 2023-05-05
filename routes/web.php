@@ -516,7 +516,7 @@ Route::group(['middleware' => ['campuscms.member']], function() use ($namespaceP
 
 	// Cara Jualan
 	Route::get('/member/afiliasi/cara-jualan', function(){
-		return view('campuscms::member.afiliasi.cara-jualan');
+		return view('faturcms::member.afiliasi.cara-jualan');
 	})->name('member.afiliasi.carajualan');
 
 	// Komisi
