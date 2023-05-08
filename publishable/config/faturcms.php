@@ -36,6 +36,7 @@ return [
         'folder' => 'folder.svg',
         'karir' => 'karir.png',
         'mentor' => 'mentor.jpg',
+        'gallery' => 'gallery.jpg',
         'mitra' => 'mitra.png',
         'pelatihan' => 'pelatihan.png',
         'program' => 'program.png',

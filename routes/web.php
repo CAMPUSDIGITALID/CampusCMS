@@ -51,6 +51,16 @@ Route::group(['middleware' => ['campuscms.admin']], function() use ($namespacePr
 	Route::get('/admin/profile/edit', $namespacePrefix.'UserController@editProfile')->name('admin.profile.edit');
 	Route::post('/admin/profile/update', $namespacePrefix.'UserController@updateProfile')->name('admin.profile.update');
 
+	//gallery
+	Route::get('/admin/gallery/',$namespacePrefix. 'GalleryController@index')->name('admin.gallery.index');
+	Route::post('/admin/gallery/store',$namespacePrefix. 'GalleryController@store')->name('admin.gallery.store');
+	Route::get('/admin/gallery/create',$namespacePrefix. 'GalleryController@create')->name('admin.gallery.create');
+	Route::get('/admin/gallery/edit/{id}',$namespacePrefix. 'GalleryController@edit')->name('admin.gallery.edit');
+	Route::post('/admin/gallery/update',$namespacePrefix. 'GalleryController@update')->name('admin.gallery.update');
+	Route::post('/admin/gallery/delete',$namespacePrefix. 'GalleryController@delete')->name('admin.gallery.delete');
+	Route::get('/admin/gallery/images',$namespacePrefix. 'GalleryController@showImages')->name('admin.gallery.images');
+
+
 	// Package
 	Route::get('/admin/sistem/package', $namespacePrefix.'PackageController@index')->name('admin.package.index');
 	Route::get('/admin/sistem/package/me', $namespacePrefix.'PackageController@me')->name('admin.package.me');
