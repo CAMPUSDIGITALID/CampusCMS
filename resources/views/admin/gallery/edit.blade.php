@@ -66,13 +66,13 @@
 </main>
 <!-- /Main -->
 
-@include('faturcms::template.admin._modal-image', ['croppieWidth' => 400, 'croppieHeight' => 400])
+@include('faturcms::template.admin._modal-image', ['croppieWidth' => 800, 'croppieHeight' => 800])
 
 @endsection
 
 @section('js-extra')
 
-@include('faturcms::template.admin._js-image', ['imageType' => 'gallery', 'croppieWidth' => 400, 'croppieHeight' => 400])
+@include('faturcms::template.admin._js-image', ['imageType' => 'gallery', 'croppieWidth' => 800, 'croppieHeight' => 800])
 
 @endsection
 
