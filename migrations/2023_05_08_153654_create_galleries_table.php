@@ -13,10 +13,13 @@ class CreateGalleriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('galleries', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if(!Schema::hasTable('galleries')) {
+            Schema::create('galleries', function (Blueprint $table) {
+                $table->id();
+                $table->string('judul_gambar');
+                $table->string('gambar');
+            });
+        }
     }
 
     /**
