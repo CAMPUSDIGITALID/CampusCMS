@@ -57,10 +57,18 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
+
+        //get array of materi program
+        $materi = $request->program_materi;
+        $str_arr = explode (",", $materi); 
+        $json_materi = json_encode($str_arr);
+
         // Validasi
         $validator = Validator::make($request->all(), [
             'judul_program' => 'required|max:255',
             'kategori' => 'required',
+            'program_materi' => 'required',
+            'program_manfaat' => 'required',
         ], array_validation_messages());
         
         // Mengecek jika ada error
@@ -69,6 +77,8 @@ class ProgramController extends Controller
             return redirect()->back()->withErrors($validator->errors())->withInput($request->only([
                 'judul_program',
                 'kategori',
+                'program_materi',
+                'program_manfaat',
             ]));
         }
         // Jika tidak ada error
@@ -77,11 +87,17 @@ class ProgramController extends Controller
             $program = new Program;
             $program->program_title = $request->judul_program;
             $program->program_permalink = slugify($request->judul_program, 'program', 'program_permalink', 'id_program', null);
-            $program->program_gambar = generate_image_name("assets/images/program/", $request->gambar, $request->gambar_url);
+            $program->program_gambar = name_image($request, 'program_gambar','assets/images/program');
             $program->program_kategori = $request->kategori;
-            $program->konten = htmlentities(upload_quill_image($request->konten, 'assets/images/konten-program/'));
+            $program->konten = $request->konten;
             $program->author = Auth::user()->id_user;
             $program->program_at = date('Y-m-d H:i:s');
+
+            $program->gambar_bnsp = name_image($request, 'gambar_bnsp', 'assets/images/bnsp');
+            $program->program_materi = $json_materi;
+            $program->program_manfaat = htmlentities(upload_quill_image($request->program_manfaat, 'assets/images/konten-program/')); 
+            $program->price = $request->price;
+            
             $program->save();
         }
 
@@ -103,6 +119,9 @@ class ProgramController extends Controller
     	// Data program
     	$program = Program::findOrFail($id);
 
+        $decode_array = json_decode($program->program_materi, true);
+        $program->program_materi = implode(',',$decode_array);
+    
         // Kategori
         $kategori = KategoriProgram::all();
 
@@ -121,10 +140,17 @@ class ProgramController extends Controller
      */
     public function update(Request $request)
     {
+        //get array of materi program
+        $materi = $request->program_materi;
+        $str_arr = explode (",", $materi); 
+        $json_materi = json_encode($str_arr);
+
         // Validasi
         $validator = Validator::make($request->all(), [
             'judul_program' => 'required|max:255',
             'kategori' => 'required',
+            'program_materi' => 'required',
+            'program_manfaat' => 'required',
         ], array_validation_messages());
         
         // Mengecek jika ada error
@@ -133,17 +159,26 @@ class ProgramController extends Controller
             return redirect()->back()->withErrors($validator->errors())->withInput($request->only([
                 'judul_program',
                 'kategori',
+                'program_materi',
+                'program_manfaat',
             ]));
         }
         // Jika tidak ada error
         else{
             // Mengupdate data
             $program = Program::find($request->id);
+            
             $program->program_title = $request->judul_program;
             $program->program_permalink = slugify($request->judul_program, 'program', 'program_permalink', 'id_program', $request->id);
-            $program->program_gambar = generate_image_name("assets/images/program/", $request->gambar, $request->gambar_url) != '' ? generate_image_name("assets/images/program/", $request->gambar, $request->gambar_url) : $program->program_gambar;
+            $program->program_gambar = name_image($request, 'program_gambar','assets/images/program') != '' ? name_image($request, 'program_gambar','assets/images/program') : $program->program_gambar;
             $program->program_kategori = $request->kategori;
-            $program->konten = htmlentities(upload_quill_image($request->konten, 'assets/images/konten-program/'));
+            $program->konten = $request->konten;
+
+            $program->gambar_bnsp = name_image($request, 'gambar_bnsp', 'assets/images/bnsp');
+            $program->program_materi = $json_materi;
+            $program->program_manfaat = htmlentities(upload_quill_image($request->program_manfaat, 'assets/images/konten-program/')); 
+            $program->price = $request->price;
+
             $program->save();
         }
 

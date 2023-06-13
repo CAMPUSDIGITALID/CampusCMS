@@ -19,6 +19,7 @@
  * @method device_info()
  * @method location_info(string $ip)
  * @method log_activity()
+ * @method name_image(Request $request, $file, $path)
  * @method log_login(object $request)
  *
  * Array Helpers:
@@ -105,6 +106,23 @@ if(!function_exists('image')){
             return file_exists(public_path($file)) && !is_dir(public_path($file)) ? asset($file) : asset('assets/images/default/'.config('faturcms.images.'.$category));
         else
             return '';
+    }
+}
+
+//get name image and save to public_folder
+// file : request_name image
+// path : saving file location
+if(!function_exists('name_image')){
+    function name_image(Request $request, $file, $path){
+        if($request->hasFile($file)){
+            $gambar = $request->file($file);
+            $nama_gambar = $gambar->getClientOriginalName();
+
+            //save
+            $gambar->move(public_path().'/'.$path.'/',$nama_gambar);
+            //return
+            return $nama_gambar;
+        }
     }
 }
 

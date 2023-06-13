@@ -26,7 +26,17 @@ class Program extends Model
      * @var array
      */
     protected $fillable = [
-        'program_title', 'program_permalink', 'program_gambar', 'program_kategori', 'konten', 'author', 'program_at',
+        'program_title', 
+        'program_permalink', 
+        'program_gambar', 
+        'program_kategori', 
+        'konten', 
+        'author', 
+        'program_at',
+        'gambar_bnsp',
+        'program_materi',
+        'program_manfaat',
+        'price'
     ];
 
     /**

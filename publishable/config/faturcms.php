@@ -46,6 +46,7 @@ return [
         'tools' => 'tools.svg',
         'user' => 'user.jpg',
         'video' => 'video.svg',
+        'bnsp' => 'bnsp1.png'
     ],
 
     /*

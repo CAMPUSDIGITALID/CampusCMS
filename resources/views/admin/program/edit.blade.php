@@ -57,10 +57,9 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Gambar</label>
+                            <label class="col-md-2 col-form-label">Gambar Promo/Program</label>
                             <div class="col-md-10">
-                                <input type="file" id="file" class="d-none" accept="image/*">
-                                <a class="btn btn-sm btn-secondary btn-image" href="#"><i class="fa fa-image mr-2"></i>Pilih Gambar...</a>
+                                <input type="file" id="file" name="program_gambar" accept="image/*">
                                 <br>
                                 <img src="{{ image('assets/images/program/'.$program->program_gambar, 'program') }}" id="img-file" class="mt-2 img-thumbnail {{ $program->program_gambar != '' ? '' : 'd-none' }}" style="max-height: 150px">
                                 <input type="hidden" name="gambar">
@@ -68,15 +67,56 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Konten</label>
+                            <label class="col-md-2 col-form-label">Gambar Sertifikat</label>
                             <div class="col-md-10">
-                                <textarea name="konten" class="d-none"></textarea>
-                                <div id="editor">{!! html_entity_decode($program->konten) !!}</div> 
-                                @if($errors->has('konten'))
-                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('konten')) }}</div>
+                                <input type="file" id="file" name="gambar_bnsp" accept="image/*">
+                                <br>
+                                <img src="{{ image('assets/images/bnsp/'.$program->gambar_bnsp, 'program') }}" id="img-file" class="mt-2 img-thumbnail {{ $program->gambar_bnsp != '' ? '' : 'd-none' }}" style="max-height: 150px">
+                                <input type="hidden" name="gambar_bnsp">
+                                <input type="hidden" name="gambar_url">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Deskripsi Pelatihan <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <textarea name="#" class="form-control {{ $errors->has('judul_program') ? 'is-invalid' : '' }}">{{ $program->program_title }}</textarea>
+                                @if($errors->has('judul_program'))
+                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('judul_program')) }}</div>
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Materi Pelatihan <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="program_materi" class="form-control {{ $errors->has('program_materi') ? 'is-invalid' : '' }}" value="{{ $program->program_materi }}">
+                                @if($errors->has('program_materi'))
+                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('program_materi')) }}</div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Price</label>
+                            <div class="col-md-10">
+                                <input type="number" name="price" class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" value="{{ $program->price }}">
+                                @if($errors->has('price'))
+                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('price')) }}</div>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Manfaat Pelatihan</label>
+                            <div class="col-md-10">
+                                <textarea name="program_manfaat" class="d-none"></textarea>
+                                <div id="editor">{!! html_entity_decode($program->program_manfaat) !!}</div> 
+                                @if($errors->has('program_manfaat'))
+                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('program_manfaat')) }}</div>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label"></label>
                             <div class="col-md-10">
@@ -107,13 +147,14 @@
 
 <script type="text/javascript">
     // Quill
+    // generate_quill("#editor");
     generate_quill("#editor");
 
     // Button Submit
     $(document).on("click", "button[type=submit]", function(e){
         var myEditor = document.querySelector('#editor');
         var html = myEditor.children[0].innerHTML;
-        $("textarea[name=konten]").text(html);
+        $("textarea[name=program_manfaat]").text(html);
         $("#form").submit();
     });
 </script>

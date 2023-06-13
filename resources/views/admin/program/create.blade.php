@@ -51,7 +51,21 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Gambar</label>
+                            <label class="col-md-2 col-form-label">Gambar Promo/program</label>
+                            <div class="col-md-10">
+                                <input type="file" id="program_gambar" name="program_gambar" accept="image/*">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Gambar Sertifikat</label>
+                            <div class="col-md-10">
+                                <input type="file" name="gambar_bnsp" accept="image/*">
+                            </div>
+
+                        </div>
+                        {{-- <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Gambar Sertifikat</label>
                             <div class="col-md-10">
                                 <input type="file" id="file" class="d-none" accept="image/*">
                                 <a class="btn btn-sm btn-secondary btn-image" href="#"><i class="fa fa-image mr-2"></i>Pilih Gambar...</a>
@@ -61,13 +75,38 @@
                                 <input type="hidden" name="gambar_url">
                             </div>
                         </div>
+                         --}}
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Konten</label>
+                            <label class="col-md-2 col-form-label">Deskripsi Pelatihan</label>
                             <div class="col-md-10">
-                                <textarea name="konten" class="d-none"></textarea>
+                                <textarea name="konten" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Materi Pelatihan <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="program_materi" class="form-control" placeholder="Gunakan tanda koma sebagai pemisah jika lebih dari 1.....">
+                                @if($errors->has('program_materi'))
+                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('program_materi')) }}</div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Price <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <input type="number" name="price" class="form-control" placeholder="harga dari program pelatihan ">
+                                @if($errors->has('price'))
+                                    <div class="small text-danger mt-1">{{ ucfirst($errors->first('price')) }}</div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Manfaat Pelatihan</label>
+                            <div class="col-md-10">
+                                <textarea name="program_manfaat" class="d-none"></textarea>
                                 <div id="editor"></div> 
-                                @if($errors->has('konten'))
-                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('konten')) }}</div>
+                                @if($errors->has('program_manfaat'))
+                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('program_manfaat')) }}</div>
                                 @endif
                             </div>
                         </div>
@@ -107,7 +146,7 @@
     $(document).on("click", "button[type=submit]", function(e){
         var myEditor = document.querySelector('#editor');
         var html = myEditor.children[0].innerHTML;
-        $("textarea[name=konten]").text(html);
+        $("textarea[name=program_manfaat]").text(html);
         $("#form").submit();
     });
 </script>
