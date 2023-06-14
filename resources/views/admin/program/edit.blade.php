@@ -80,9 +80,9 @@
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label">Deskripsi Pelatihan <span class="text-danger">*</span></label>
                             <div class="col-md-10">
-                                <textarea name="#" class="form-control {{ $errors->has('judul_program') ? 'is-invalid' : '' }}">{{ $program->program_title }}</textarea>
-                                @if($errors->has('judul_program'))
-                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('judul_program')) }}</div>
+                                <textarea name="konten" class="form-control {{ $errors->has('konten') ? 'is-invalid' : '' }}">{{ $program->konten }}</textarea>
+                                @if($errors->has('konten'))
+                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('konten')) }}</div>
                                 @endif
                             </div>
                         </div>
