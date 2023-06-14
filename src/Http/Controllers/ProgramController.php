@@ -119,8 +119,10 @@ class ProgramController extends Controller
     	// Data program
     	$program = Program::findOrFail($id);
 
-        $decode_array = json_decode($program->program_materi, true);
-        $program->program_materi = implode(',',$decode_array);
+        if($program->program_materi != null){
+            $decode_array = json_decode($program->program_materi, true);
+            $program->program_materi = implode(',',$decode_array);
+        }
     
         // Kategori
         $kategori = KategoriProgram::all();
