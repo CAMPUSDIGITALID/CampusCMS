@@ -14,14 +14,14 @@ class AddSomeToProgramTable extends Migration
     public function up()
     {
         Schema::table('program', function (Blueprint $table) {
-            if(!Schema::hasColumn('program', 'gambar_bnsp')){
-                $table->string('gambar_bnsp')->nullable();
-            }
             if(!Schema::hasColumn('program','program_materi')){
-                $table->string('program_materi');
+                $table->text('program_materi');
+            }
+            if(!Schema::hasColumn('program','materi_desk')){
+                $table->text('materi_desk');
             }
             if(!Schema::hasColumn('program','program_manfaat')){
-                $table->string('program_manfaat');
+                $table->text('program_manfaat');
             }
             
         });

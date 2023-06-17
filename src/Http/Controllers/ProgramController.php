@@ -57,6 +57,10 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
+        //get array of deskripsi materi program
+        $mtr_desk = $request->materi_desk;
+        $str_desk = explode(",", $mtr_desk);
+        $json_desk = json_encode($str_desk);
 
         //get array of materi program
         $materi = $request->program_materi;
@@ -68,6 +72,7 @@ class ProgramController extends Controller
             'judul_program' => 'required|max:255',
             'kategori' => 'required',
             'program_materi' => 'required',
+            'materi_desk' => 'required',
             'program_manfaat' => 'required',
         ], array_validation_messages());
         
@@ -79,6 +84,7 @@ class ProgramController extends Controller
                 'kategori',
                 'program_materi',
                 'program_manfaat',
+                'materi_desk'
             ]));
         }
         // Jika tidak ada error
@@ -93,7 +99,7 @@ class ProgramController extends Controller
             $program->author = Auth::user()->id_user;
             $program->program_at = date('Y-m-d H:i:s');
 
-            $program->gambar_bnsp = name_image($request, 'gambar_bnsp', 'assets/images/bnsp');
+            $program->materi_desk = $json_desk;
             $program->program_materi = $json_materi;
             $program->program_manfaat = htmlentities(upload_quill_image($request->program_manfaat, 'assets/images/konten-program/')); 
             $program->price = $request->price;
@@ -124,6 +130,10 @@ class ProgramController extends Controller
             $program->program_materi = implode(',',$decode_array);
         }
     
+        if($program->materi_desk != null){
+            $decode_array_desk = json_decode($program->materi_desk, true);
+            $program->materi_desk = implode(',',$decode_array_desk);
+        }
         // Kategori
         $kategori = KategoriProgram::all();
 
@@ -142,6 +152,11 @@ class ProgramController extends Controller
      */
     public function update(Request $request)
     {
+        //get array from materi description
+        $mtr_desk = $request->materi_desk;
+        $str_desk = explode(",", $mtr_desk);
+        $json_desk = json_encode($str_desk);
+
         //get array of materi program
         $materi = $request->program_materi;
         $str_arr = explode (",", $materi); 
@@ -153,6 +168,7 @@ class ProgramController extends Controller
             'kategori' => 'required',
             'program_materi' => 'required',
             'program_manfaat' => 'required',
+            'materi_desk' => 'required'
         ], array_validation_messages());
         
         // Mengecek jika ada error
@@ -163,6 +179,7 @@ class ProgramController extends Controller
                 'kategori',
                 'program_materi',
                 'program_manfaat',
+                'materi_desk'
             ]));
         }
         // Jika tidak ada error
@@ -176,7 +193,7 @@ class ProgramController extends Controller
             $program->program_kategori = $request->kategori;
             $program->konten = $request->konten;
 
-            $program->gambar_bnsp = name_image($request, 'gambar_bnsp', 'assets/images/bnsp');
+            $program->materi_desk = $json_desk;
             $program->program_materi = $json_materi;
             $program->program_manfaat = htmlentities(upload_quill_image($request->program_manfaat, 'assets/images/konten-program/')); 
             $program->price = $request->price;

@@ -16,7 +16,7 @@ class AddPriceToProgram extends Migration
         Schema::table('program', function (Blueprint $table) {
             if(!Schema::hasColumn('program','price')){
                 $table->integer('price')->nullable();
-            }
+            }            
         });
     }
 

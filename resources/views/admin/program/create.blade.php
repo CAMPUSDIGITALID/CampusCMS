@@ -56,14 +56,6 @@
                                 <input type="file" id="program_gambar" name="program_gambar" accept="image/*">
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Gambar Sertifikat</label>
-                            <div class="col-md-10">
-                                <input type="file" name="gambar_bnsp" accept="image/*">
-                            </div>
-
-                        </div>
                         {{-- <div class="form-group row">
                             <label class="col-md-2 col-form-label">Gambar Sertifikat</label>
                             <div class="col-md-10">
@@ -88,6 +80,15 @@
                                 <input type="text" name="program_materi" class="form-control" placeholder="Gunakan tanda koma sebagai pemisah jika lebih dari 1.....">
                                 @if($errors->has('program_materi'))
                                 <div class="small text-danger mt-1">{{ ucfirst($errors->first('program_materi')) }}</div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Penjelasan Per poin materi</label>
+                            <div class="col-md-10">
+                                <textarea name="materi_desk" class="form-control" placeholder="Gunakan tanda koma sebagai pemisah, wajib diurutkan berdasarkan poin materi di kolom atasnya"></textarea>
+                                @if($errors->has('materi_desk'))
+                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('materi_desk')) }}</div>
                                 @endif
                             </div>
                         </div>

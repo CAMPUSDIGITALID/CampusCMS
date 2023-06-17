@@ -65,34 +65,28 @@
                                 <input type="hidden" name="gambar">
                                 <input type="hidden" name="gambar_url">
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Gambar Sertifikat</label>
-                            <div class="col-md-10">
-                                <input type="file" id="file" name="gambar_bnsp" accept="image/*">
-                                <br>
-                                <img src="{{ image('assets/images/bnsp/'.$program->gambar_bnsp, 'program') }}" id="img-file" class="mt-2 img-thumbnail {{ $program->gambar_bnsp != '' ? '' : 'd-none' }}" style="max-height: 150px">
-                                <input type="hidden" name="gambar_bnsp">
-                                <input type="hidden" name="gambar_url">
-                            </div>
-                        </div>
-                        
+                        </div>                        
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label">Deskripsi Pelatihan <span class="text-danger">*</span></label>
                             <div class="col-md-10">
                                 <textarea name="konten" class="form-control {{ $errors->has('konten') ? 'is-invalid' : '' }}">{{ $program->konten }}</textarea>
-                                @if($errors->has('konten'))
-                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('konten')) }}</div>
-                                @endif
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label">Materi Pelatihan <span class="text-danger">*</span></label>
                             <div class="col-md-10">
                                 <input type="text" name="program_materi" class="form-control {{ $errors->has('program_materi') ? 'is-invalid' : '' }}" value="{{ $program->program_materi }}">
                                 @if($errors->has('program_materi'))
                                 <div class="small text-danger mt-1">{{ ucfirst($errors->first('program_materi')) }}</div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Penjelasan Per poin materi</label>
+                            <div class="col-md-10">
+                                <textarea name="materi_desk" class="form-control {{ $errors->has('materi_desk') ? 'is-invalid' : '' }}">{{ $program->materi_desk }}</textarea>
+                                @if($errors->has('materi_desk'))
+                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('materi_desk')) }}</div>
                                 @endif
                             </div>
                         </div>
