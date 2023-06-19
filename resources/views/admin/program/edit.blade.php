@@ -93,10 +93,7 @@
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label">Price</label>
                             <div class="col-md-10">
-                                <input type="number" name="price" class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" value="{{ $program->price }}">
-                                @if($errors->has('price'))
-                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('price')) }}</div>
-                                @endif
+                                <input type="number" name="price" class="form-control" value="{{ $program->price }}">
                             </div>
                         </div>
 

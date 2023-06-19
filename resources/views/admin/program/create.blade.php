@@ -93,12 +93,9 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Price <span class="text-danger">*</span></label>
+                            <label class="col-md-2 col-form-label">Price<span class="text-danger">*</span></label>
                             <div class="col-md-10">
-                                <input type="number" name="price" class="form-control" placeholder="harga dari program pelatihan ">
-                                @if($errors->has('price'))
-                                    <div class="small text-danger mt-1">{{ ucfirst($errors->first('price')) }}</div>
-                                @endif
+                                <input type="number" name="price" class="form-control" placeholder="harga dari program pelatihan, bila ada tambahan harga, tambahkan pemisah koma ">
                             </div>
                         </div>
                         <div class="form-group row">

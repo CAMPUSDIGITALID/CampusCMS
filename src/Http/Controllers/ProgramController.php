@@ -57,6 +57,11 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
+        //harga
+        $harga = $request->price;
+        $harga_disk = explode(",", $harga);
+        $json_harga = json_encode($harga_disk);
+
         //get array of deskripsi materi program
         $mtr_desk = $request->materi_desk;
         $str_desk = explode(",", $mtr_desk);
@@ -102,7 +107,7 @@ class ProgramController extends Controller
             $program->materi_desk = $json_desk;
             $program->program_materi = $json_materi;
             $program->program_manfaat = htmlentities(upload_quill_image($request->program_manfaat, 'assets/images/konten-program/')); 
-            $program->price = $request->price;
+            $program->price = $json_harga;
             
             $program->save();
         }
@@ -124,6 +129,11 @@ class ProgramController extends Controller
 
     	// Data program
     	$program = Program::findOrFail($id);
+
+        if($program->price != null){
+            $decode_array_price = json_decode($program->price, true);
+            $program->price = implode(',', $decode_array_price);
+        }
 
         if($program->program_materi != null){
             $decode_array = json_decode($program->program_materi, true);
@@ -152,6 +162,11 @@ class ProgramController extends Controller
      */
     public function update(Request $request)
     {
+        //harga
+        $harga = $request->price;
+        $harga_disk = explode(",", $harga);
+        $json_harga = json_encode($harga_disk);
+
         //get array from materi description
         $mtr_desk = $request->materi_desk;
         $str_desk = explode(",", $mtr_desk);
@@ -196,7 +211,7 @@ class ProgramController extends Controller
             $program->materi_desk = $json_desk;
             $program->program_materi = $json_materi;
             $program->program_manfaat = htmlentities(upload_quill_image($request->program_manfaat, 'assets/images/konten-program/')); 
-            $program->price = $request->price;
+            $program->price = $json_harga;
 
             $program->save();
         }
