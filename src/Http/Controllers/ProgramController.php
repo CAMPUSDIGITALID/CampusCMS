@@ -204,7 +204,7 @@ class ProgramController extends Controller
             
             $program->program_title = $request->judul_program;
             $program->program_permalink = slugify($request->judul_program, 'program', 'program_permalink', 'id_program', $request->id);
-            $program->program_gambar = name_image($request, 'program_gambar','assets/images/program');
+            $program->program_gambar = name_image($request, 'program_gambar','assets/images/program') != '' ? name_image($request, 'program_gambar','assets/images/program') : $program->program_gambar;
             $program->program_kategori = $request->kategori;
             $program->konten = $request->konten;
 
