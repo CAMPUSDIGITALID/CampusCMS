@@ -57,20 +57,18 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
+   
         //harga
-        $harga = $request->price;
-        $harga_disk = explode(",", $harga);
-        $json_harga = json_encode($harga_disk);
-
-        //get array of deskripsi materi program
-        $mtr_desk = $request->materi_desk;
-        $str_desk = explode(",", $mtr_desk);
-        $json_desk = json_encode($str_desk);
+        $harga = array($request->price[0],$request->price[1]);
+        $json_harga = json_encode($harga);
 
         //get array of materi program
-        $materi = $request->program_materi;
-        $str_arr = explode (",", $materi); 
-        $json_materi = json_encode($str_arr);
+        $materi = $request->program_materi;        
+        $json_materi = json_encode($materi);
+        
+        //get array of deskripsi materi program
+        $mtr_desk = $request->materi_desk;
+        $json_desk = json_encode($mtr_desk);
 
         // Validasi
         $validator = Validator::make($request->all(), [
@@ -79,6 +77,7 @@ class ProgramController extends Controller
             'program_materi' => 'required',
             'materi_desk' => 'required',
             'program_manfaat' => 'required',
+            'price' => 'required'
         ], array_validation_messages());
         
         // Mengecek jika ada error
@@ -89,7 +88,8 @@ class ProgramController extends Controller
                 'kategori',
                 'program_materi',
                 'program_manfaat',
-                'materi_desk'
+                'materi_desk',
+                'price'
             ]));
         }
         // Jika tidak ada error
@@ -109,6 +109,7 @@ class ProgramController extends Controller
             $program->program_manfaat = htmlentities(upload_quill_image($request->program_manfaat, 'assets/images/konten-program/')); 
             $program->price = $json_harga;
             
+          
             $program->save();
         }
 
@@ -130,27 +131,39 @@ class ProgramController extends Controller
     	// Data program
     	$program = Program::findOrFail($id);
 
-        if($program->price != null){
-            $decode_array_price = json_decode($program->price, true);
-            $program->price = implode(',', $decode_array_price);
-        }
+        // if($program->price != null){
+        //     $decode_array_price = json_decode($program->price, true);
+        //     $program->price = implode(',', $decode_array_price);
+        // }
 
-        if($program->program_materi != null){
-            $decode_array = json_decode($program->program_materi, true);
-            $program->program_materi = implode(',',$decode_array);
-        }
+        // if($program->program_materi != null){
+        //     $decode_array = json_decode($program->program_materi, true);
+        //     $program->program_materi = implode(',',$decode_array);
+        // }
     
-        if($program->materi_desk != null){
-            $decode_array_desk = json_decode($program->materi_desk, true);
-            $program->materi_desk = implode(',',$decode_array_desk);
+        // if($program->materi_desk != null){
+        //     $decode_array_desk = json_decode($program->materi_desk, true);
+        //     $program->materi_desk = implode(',',$decode_array_desk);
+        // }
+
+        $program->program_materi = json_decode($program->program_materi, true);
+        $program->materi_desk = json_decode($program->materi_desk, true);
+        $program->price = json_decode($program->price, true);
+        $count_program = count($program->program_materi);
+        $count_materi = count($program->materi_desk);
+
+        if($count_materi > $count_program){
+            $count = $count_materi;
+        }else{
+            $count = $count_program;
         }
-        // Kategori
         $kategori = KategoriProgram::all();
 
         // View
         return view('faturcms::admin.program.edit', [
         	'program' => $program,
         	'kategori' => $kategori,
+            'count' => $count_materi
         ]);
     }
 
@@ -163,19 +176,16 @@ class ProgramController extends Controller
     public function update(Request $request)
     {
         //harga
-        $harga = $request->price;
-        $harga_disk = explode(",", $harga);
-        $json_harga = json_encode($harga_disk);
+        $harga = array($request->price[0],$request->price[1]);
+        $json_harga = json_encode($harga);
 
         //get array from materi description
         $mtr_desk = $request->materi_desk;
-        $str_desk = explode(",", $mtr_desk);
-        $json_desk = json_encode($str_desk);
+        $json_desk = json_encode($mtr_desk);
 
         //get array of materi program
-        $materi = $request->program_materi;
-        $str_arr = explode (",", $materi); 
-        $json_materi = json_encode($str_arr);
+        $materi = $request->program_materi; 
+        $json_materi = json_encode($materi);
 
         // Validasi
         $validator = Validator::make($request->all(), [
@@ -183,7 +193,8 @@ class ProgramController extends Controller
             'kategori' => 'required',
             'program_materi' => 'required',
             'program_manfaat' => 'required',
-            'materi_desk' => 'required'
+            'materi_desk' => 'required',
+            'price'=> 'required'
         ], array_validation_messages());
         
         // Mengecek jika ada error
@@ -194,7 +205,8 @@ class ProgramController extends Controller
                 'kategori',
                 'program_materi',
                 'program_manfaat',
-                'materi_desk'
+                'materi_desk',
+                'price'
             ]));
         }
         // Jika tidak ada error

@@ -25,7 +25,12 @@
             <div class="tile">
                 <!-- Tile Body -->
                 <div class="tile-body">
+                  
+                    @if( app('router')->getRoutes(url()->previous())->match(app('request')->create(url()->previous()))->getName() == 'admin.user.refer')
+                    <form id="form" method="post" action="{{ route('admin.user.updateref',['idref' => $idref]) }}" enctype="multipart/form-data">
+                    @elseif( app('router')->getRoutes(url()->previous())->match(app('request')->create(url()->previous()))->getName() == 'admin.user.index') 
                     <form id="form" method="post" action="{{ route('admin.user.update') }}" enctype="multipart/form-data">
+                    @endif
                         {{ csrf_field() }}
                         <input type="hidden" name="id" value="{{ $user->id_user }}">
                         <div class="form-group row">

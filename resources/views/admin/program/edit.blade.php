@@ -72,7 +72,7 @@
                                 <textarea name="konten" class="form-control {{ $errors->has('konten') ? 'is-invalid' : '' }}">{{ $program->konten }}</textarea>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-md-2 col-form-label">Materi Pelatihan <span class="text-danger">*</span></label>
                             <div class="col-md-10">
                                 <input type="text" name="program_materi" class="form-control {{ $errors->has('program_materi') ? 'is-invalid' : '' }}" value="{{ $program->program_materi }}">
@@ -80,22 +80,61 @@
                                 <div class="small text-danger mt-1">{{ ucfirst($errors->first('program_materi')) }}</div>
                                 @endif
                             </div>
-                        </div>
-                        <div class="form-group row">
+                        </div> --}}
+                        {{-- <div class="form-group row">
                             <label class="col-md-2 col-form-label">Penjelasan Per poin materi</label>
                             <div class="col-md-10">
-                                <textarea name="materi_desk" class="form-control {{ $errors->has('materi_desk') ? 'is-invalid' : '' }}">{{ $program->materi_desk }}</textarea>
+                                <textarea name="materi_desk[]" class="form-control {{ $errors->has('materi_desk') ? 'is-invalid' : '' }}">{{ $program->materi_desk }}</textarea>
                                 @if($errors->has('materi_desk'))
                                 <div class="small text-danger mt-1">{{ ucfirst($errors->first('materi_desk')) }}</div>
                                 @endif
+                                
+                            </div>
+                        </div> --}}
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Materi</label>
+                            <div class="col-md-10">
+                                <table class="table table-sm table-bordered" id="table-dr">
+                                    <tbody>              
+                                        @for($i=0;$i<$count;$i++)
+                                            <tr data-id="{{ $i }}" id="{{ $i }}">
+                                                <td width="200">
+                                                    <input type="text" name="program_materi[]" value="{{ $program->program_materi[$i] }}" placeholder="Judul Materi" class="form-control form-control-sm">
+                                                </td>
+                                                <td>
+                                                    <textarea style="text-align: left" placeholder="Penjelasan Singkat Materi" name="materi_desk[]" class="form-control form-control-sm" rows="2">{{ $program->materi_desk[$i] }}</textarea>
+                                                </td>
+                                                <td width="80" align="center">
+                                                    <div class="btn-group">
+                                                        <a href="#" class="btn btn-success btn-sm btn-add-row" data-id="{{ $i }}" data-bs-toggle="tooltip" title="Tambah"><i class="fa fa-plus"></i></a>
+                                                        <a href="#" class="btn btn-danger btn-sm btn-delete-row" data-id="{{ $i }}" data-bs-toggle="tooltip" title="Hapus"><i class="fa fa-trash"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endfor
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Harga Pelatihan<span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <table class="table-sm table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td width="500"><input type="number" name="price[0]" class="form-control" value="{{ $program->price[0] }}" placeholder="Harga Pelatihan"></td>
+                                            <td width="500"><input type="number" name="price[1]" class="form-control" value="{{ $program->price[1] }}" placeholder="Harga Jika Ada Diskon"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {{-- <div class="form-group row">
                             <label class="col-md-2 col-form-label">Price</label>
                             <div class="col-md-10">
                                 <input type="number" name="price" class="form-control" value="{{ $program->price }}">
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label">Manfaat Pelatihan</label>
@@ -148,6 +187,63 @@
         $("textarea[name=program_manfaat]").text(html);
         $("#form").submit();
     });
+
+    //load
+    $(window).on("load", function(){
+        //table input for PENJELASAN
+        var tlength = $("#table-dr tbody tr").length;
+        if(tlength == 0) $("#table-dr tbody").append(make_html());
+    })
+
+    //add input field
+    $(document).on("click", ".btn-add-row", function(e){
+        e.preventDefault();
+        var id = $(this).parents(".table").attr("id");
+        if(id == "table-dr") $(this).parents(".table").find("tbody").append(make_html());
+        recreate();
+    })
+
+    //delete input field
+    $(document).on("click", ".btn-delete-row", function(e){
+        e.preventDefault();
+        var id = $(this).data("id");
+        var length = $(this).parents(".table").find("tbody tr").length;
+        var ask = confirm("Data akan dihapus, apakah anda yakin?");
+        if(ask){
+            if(length > 1){
+                $(this).parents(".table").find("tbody tr[data-id="+id+"]").remove();
+                recreate();
+            }
+        }
+    })
+
+    //html
+    function make_html(){
+        var html ='';
+        html += '<tr data-id="0">';
+        html += '<td width="200"><input type="text" name="program_materi[]" placeholder="Judul Materi" class="form-control form-control-sm"></td>';
+        html += '<td>';
+        html += '<textarea placeholder="Penjelasan Singkat Materi" name="materi_desk[]" class="form-control form-control-sm" rows="2"></textarea>';
+        html += '</td>';
+        html += '<td width="80" align="center">';
+        html += '<input type="hidden" name="materih_id[]">';
+        html += '<div class="btn-group">';
+        html += '<a href="#" class="btn btn-success btn-sm btn-add-row" data-id="0" data-bs-toggle="tooltip" title="Tambah"><i class="fa fa-plus"></i></a>';
+        html += '<a href="#" class="btn btn-danger btn-sm btn-delete-row" data-id="0" data-bs-toggle="tooltip" title="Hapus"><i class="fa fa-trash"></i></a>';
+        html += '</div>';
+        html += '</td>';
+        html += '</tr>';
+        return html;
+    }
+
+    //recreate data-id
+    function recreate(){
+        $(".table tbody tr").each(function(key,element){
+            $(element).attr("data-id",key);
+            $(element).find(".btn-add-row").attr("data-id", key);
+            $(element).find(".btn-delete-row").attr("data-id", key);
+        });
+    }
 </script>
 
 @endsection

@@ -3,20 +3,21 @@
 namespace Campusdigital\CampusCMS\Http\Controllers;
 
 use Auth;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-use Yajra\DataTables\Facades\DataTables;
-use Maatwebsite\Excel\Facades\Excel;
-use Campusdigital\CampusCMS\Exports\UserExport;
 use App\Models\User;
-use Campusdigital\CampusCMS\Models\KategoriUser;
-use Campusdigital\CampusCMS\Models\Komisi;
-use Campusdigital\CampusCMS\Models\PelatihanMember;
-use Campusdigital\CampusCMS\Models\ProfilePhoto;
-use Campusdigital\CampusCMS\Models\Rekening;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Route;
 use Campusdigital\CampusCMS\Models\Role;
+use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Validator;
+use Campusdigital\CampusCMS\Models\Komisi;
+use Campusdigital\CampusCMS\Models\Rekening;
 use Campusdigital\CampusCMS\Models\Withdrawal;
+use Campusdigital\CampusCMS\Exports\UserExport;
+use Campusdigital\CampusCMS\Models\KategoriUser;
+use Campusdigital\CampusCMS\Models\ProfilePhoto;
+use Campusdigital\CampusCMS\Models\PelatihanMember;
 
 class UserController extends Controller
 {
@@ -339,6 +340,7 @@ class UserController extends Controller
         }
 
         // Redirect
+        
         return redirect()->route('admin.user.index')->with(['message' => 'Berhasil mengupdate data.']);
     }
     
@@ -394,9 +396,82 @@ class UserController extends Controller
         return view('faturcms::admin.user.refer', [
             'user' => $user,
             'refer' => $refer,
+            'idr' => $id
+        ]);
+    }
+
+    public function referid($id,$idref)
+    {
+        // Check Access
+
+        // Get data user
+        $user = User::findOrFail($idref);
+
+        // Get data role
+        $role = Role::orderBy('is_admin','desc')->get();
+
+        // Get data kategori user
+        $kategori = KategoriUser::orderBy('id_ku','desc')->get();
+
+        // View
+        return view('faturcms::admin.user.edit', [
+            'role' => $role,
+            'kategori' => $kategori,
+            'user' => $user,
+            'idref' => $id
         ]);
     }
     
+    public function updateref(Request $request)
+    {
+        $idref= $request->idref;
+
+        // Validasi
+        $validator = Validator::make($request->all(), [
+            'nama_user' => 'required|string|max:255',
+            'tanggal_lahir' => 'required',
+            'jenis_kelamin' => 'required',
+            'nomor_hp' => 'required',
+            'user_kategori' => 'required',
+            'username' => $request->username != '' ? ['required', 'string', 'min:6', 'max:255', Rule::unique('users')->ignore($request->id, 'id_user')] : '',
+            'email' => [
+                'required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($request->id, 'id_user')
+            ],
+            'password' => $request->password != '' ? 'required|string|min:6' : '',
+            'role' => 'required',
+            'status' => 'required',
+        ], array_validation_messages());
+        
+        // Mengecek jika ada error
+        if($validator->fails()){
+            // Kembali ke halaman sebelumnya dan menampilkan pesan error
+            return redirect()->back()->withErrors($validator->errors())->withInput();
+        }
+        // Jika tidak ada error
+        else{
+            // Get data role
+            $role = Role::find($request->role);
+
+            // Menyimpan data
+            $user = User::find($request->id);
+            $user->nama_user = $request->nama_user;
+            $user->tanggal_lahir = generate_date_format($request->tanggal_lahir, 'y-m-d');
+            $user->jenis_kelamin = $request->jenis_kelamin;
+            $user->nomor_hp = $request->nomor_hp;
+            $user->user_kategori = $request->user_kategori;
+            $user->email = $request->email;
+            $user->username = $request->username != '' ? $request->username : $user->username;
+            $user->password = $request->password != '' ? bcrypt($request->password) : $user->password;
+            $user->role = $request->role;
+            $user->is_admin = $role->is_admin;
+            $user->status = $request->status;
+            $user->save();
+        }
+
+        // Redirect
+        return redirect()->route('admin.user.refer', ['id' => $idref])->with(['message' => 'Berhasil mengupdate data.']);
+    }
+
     /**
      * Menampilkan detail trainer
      * 
