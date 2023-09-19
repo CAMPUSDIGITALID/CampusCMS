@@ -242,13 +242,13 @@
 <script type="text/javascript">
 var btn = $('#top-button');
 
-$(window).scroll(function() {
-  if ($(window).scrollTop() > 300) {
-    btn.addClass('show');
-  } else {
-    btn.removeClass('show');
-  }
-});
+// $(window).scroll(function() {
+//   if ($(window).scrollTop() > 300) {
+//     btn.addClass('show');
+//   } else {
+//     btn.removeClass('show');
+//   }
+// });
 
 btn.on('click', function(e) {
   e.preventDefault();
