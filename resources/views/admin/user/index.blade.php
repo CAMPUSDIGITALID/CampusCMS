@@ -28,6 +28,10 @@
                     <div class="btn-group">
                         <a href="{{ route('admin.user.create') }}" class="btn btn-sm btn-theme-1"><i class="fa fa-plus mr-2"></i> Tambah Data</a>
                         <a href="{{ route('admin.user.export', ['filter' => $filter]) }}" class="btn btn-sm btn-success"><i class="fa fa-file-excel-o mr-2"></i> Export ke Excel</a>
+                        @if(has_access('UserController::import', Auth::user()->role, false))
+                        
+                        <button id="myBtn" class="btn btn-danger">Import Excel</button>
+                        @endif
                     </div>
                     <div>
                         <select id="filter" class="form-control form-control-sm">
@@ -40,6 +44,78 @@
                     </div>
                 </div>
                 <!-- /Tile Title -->
+                {{-- modal form --}}
+                <div id="myModal" class="modal">
+                    <div class="container" style="width: 65%">
+                        <div class="row">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close">&times;</span>     
+                                  </div>
+                                  <div class="modal-body">
+                                    <p>Ikuti format tabel di bawah ini sebelum melakukan import data <br>
+                                        <span style="color: red">
+                                            *password otomatis  : 12345678 <br>
+                                            *username            : Tentukan terlebih dahulu, tidak boleh sama<br>
+                                            *reference           : isikan username bila ada, kosong bila tidak ada
+                                        </span>
+                                    </p>
+                                    
+                                    <table class="table table-responsive mt-2">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">nama</th>
+                                            <th scope="col">username</th>
+                                            <th scope="col">email</th>
+                                            <th scope="col">jenis_kelamin</th>
+                                            <th scope="col">nomor_hp</th>
+                                            <th scope="col">reference</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <th scope="row">Campus 1</th>
+                                            <td>campus123</td>
+                                            <td>Otto@gmail.com</td>
+                                            <td>L</td>
+                                            <td>081000</td>
+                                            <td>farisfanani</td>
+                                          </tr>
+                                          <tr>
+                                            <th scope="row">Campus 2</th>
+                                            <td>campus124</td>
+                                            <td>Thornton@gmail.com</td>
+                                            <td>L</td>
+                                            <td>081000</td>
+                                            <td></td>
+                                          </tr>
+                                          <tr>
+                                            <th scope="row">Campus 3</th>
+                                            <td>campus125</td>
+                                            <td>theBird@gmail.com</td>
+                                            <td>L</td>
+                                            <td>081000</td>
+                                            <td></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+
+                                    <form method="POST" accept-charset="utf-8" enctype="multipart/form-data" action="{{ route('admin.user.import') }}">
+                                        @csrf
+                                        <div class="form-group">
+                                            <input type="file" name="file" class="form-control">
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary mt-2" id="submit">Submit</button>
+                                    </form>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                {{-- end modal form --}}
                 <!-- Tile Body -->
                 <div class="tile-body">
                     @if(Session::get('message') != null)
@@ -80,11 +156,102 @@
 
 @endsection
 
+@section('css-extra')
+<style type="text/css">
+    /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: #000;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #272727;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  color: white;
+}
+</style>
+@endsection
+
 @section('js-extra')
 
 @include('faturcms::template.admin._js-table')
 
 <script type="text/javascript">
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+$('#myBtn').on('click', function(){
+    modal.style.display = 'block';
+})
+
+$('.close').on('click', function(){
+    modal.style.display = "none";
+})
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
     // DataTable
     generate_datatable("#dataTable", {
 		"url": "{{ route('admin.user.data', ['filter' => $filter]) }}",

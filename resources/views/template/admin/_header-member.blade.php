@@ -79,8 +79,9 @@
       </ul>
     </li>
     @endif
-    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown"><i class="fa fa-user fa-lg" data-toggle="tooltip" title="Akun"></i></a>
-      <ul class="dropdown-menu settings-menu dropdown-menu-right">
+    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="collapse" data-target="#demo">
+      <i class="fa fa-user fa-lg" data-toggle="tooltip" title="Akun"></i></a>     
+      <ul id="demo" class="collapse cek">
         <div class="card">
           <div class="card-header">
             <div class="media">

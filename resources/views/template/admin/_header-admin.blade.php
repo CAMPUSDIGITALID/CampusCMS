@@ -72,9 +72,11 @@
       </ul>
     </li>
     @endif
-    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown"><i class="fa fa-user fa-lg" data-toggle="tooltip" title="Akun"></i></a>
-      <ul class="dropdown-menu settings-menu dropdown-menu-right">
-        <div class="card">
+    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="collapse" data-target="#demo">
+      <i class="fa fa-user fa-lg" data-toggle="tooltip" title="Akun"></i></a>
+      {{-- <ul class="dropdown-menu settings-menu dropdown-menu-right"> --}}
+      <ul id="demo" class="collapse cek">
+        <div class="card" style="width: 250px">
           <div class="card-header">
             <div class="media">
               <img width="50" height="50" class="rounded mr-3" src="{{ image('assets/images/user/'.Auth::user()->foto, 'user') }}">

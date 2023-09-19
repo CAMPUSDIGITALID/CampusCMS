@@ -502,5 +502,11 @@
   @media print {
       .a-app-content { margin: 0; padding: 0; background-color: #fff;}
   }
+
+  .cek{
+    position: absolute;
+    transform: translate3d(-200px, 6px, 0px);
+    z-index: 1000;
+  }
 </style>
 <link rel="stylesheet" href="{{ asset('assets/css/'.get_theme().'.css') }}" id="theme-link">

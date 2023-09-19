@@ -15,6 +15,7 @@ use Campusdigital\CampusCMS\Models\Komisi;
 use Campusdigital\CampusCMS\Models\Rekening;
 use Campusdigital\CampusCMS\Models\Withdrawal;
 use Campusdigital\CampusCMS\Exports\UserExport;
+use Campusdigital\CampusCMS\Imports\UsersImport;
 use Campusdigital\CampusCMS\Models\KategoriUser;
 use Campusdigital\CampusCMS\Models\ProfilePhoto;
 use Campusdigital\CampusCMS\Models\PelatihanMember;
@@ -676,7 +677,20 @@ class UserController extends Controller
 
         return Excel::download(new UserExport($users), 'Data User.xlsx');
     }
-      
+    
+    public function import(Request $request)
+    {
+        has_access(generate_method(__METHOD__), Auth::user()->role);
+
+        $validatedData = $request->validate([
+            'file' => 'required',
+         ]);
+  
+         Excel::import(new UsersImport,$request->file('file'));
+  
+         return redirect()->route('admin.user.index')->with(['message' => 'Berhasil Import Data.']);
+    }
+
     /**
      * Menampilkan file gambar
      *
