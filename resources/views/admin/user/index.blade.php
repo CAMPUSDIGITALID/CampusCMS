@@ -45,15 +45,15 @@
                 </div>
                 <!-- /Tile Title -->
                 {{-- modal form --}}
-                <div id="myModal" class="modal">
+                <div id="myModal" class="modalku">
                     <div class="container" style="width: 65%">
                         <div class="row">
                             <!-- Modal content -->
-                            <div class="modal-content">
-                                <div class="modal-header">
+                            <div class="modal-contentku">
+                                <div class="modal-headerku">
                                     <span class="close">&times;</span>     
                                   </div>
-                                  <div class="modal-body">
+                                  <div class="modal-bodyku">
                                     <p>Ikuti format tabel di bawah ini sebelum melakukan import data <br>
                                         <span style="color: red">
                                             *password otomatis  : 12345678 <br>
@@ -107,7 +107,7 @@
                                             <input type="file" name="file" class="form-control">
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary mt-2" id="submit">Submit</button>
+                                        <button type="submit" class="btn btn-primary mb-2" id="submit">Submit</button>
                                     </form>
                                   </div>
                             </div>
@@ -159,7 +159,7 @@
 @section('css-extra')
 <style type="text/css">
     /* The Modal (background) */
-.modal {
+.modalku {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -174,7 +174,7 @@
 }
 
 /* Modal Content */
-.modal-content {
+.modal-contentku {
   position: relative;
   background-color: #fefefe;
   margin: auto;
@@ -214,14 +214,14 @@
   cursor: pointer;
 }
 
-.modal-header {
+.modal-headerku {
   padding: 2px 16px;
   color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-bodyku {padding: 2px 16px;}
 
-.modal-footer {
+.modal-footerku {
   padding: 2px 16px;
   color: white;
 }
