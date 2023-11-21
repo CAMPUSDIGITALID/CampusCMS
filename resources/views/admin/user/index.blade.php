@@ -65,12 +65,13 @@
                                     <table class="table table-responsive mt-2">
                                         <thead>
                                           <tr>
-                                            <th scope="col">nama</th>
+                                            <th scope="col">nama_user</th>
                                             <th scope="col">username</th>
                                             <th scope="col">email</th>
                                             <th scope="col">jenis_kelamin</th>
                                             <th scope="col">nomor_hp</th>
                                             <th scope="col">reference</th>
+                                            <th scope="col">instansi</th>
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -81,6 +82,7 @@
                                             <td>L</td>
                                             <td>081000</td>
                                             <td>farisfanani</td>
+                                            <td>SMA 10</td>
                                           </tr>
                                           <tr>
                                             <th scope="row">Campus 2</th>
@@ -89,6 +91,7 @@
                                             <td>L</td>
                                             <td>081000</td>
                                             <td></td>
+                                            <td>SMA 10</td>
                                           </tr>
                                           <tr>
                                             <th scope="row">Campus 3</th>
@@ -97,6 +100,7 @@
                                             <td>L</td>
                                             <td>081000</td>
                                             <td></td>
+                                            <td>SMA 10</td>
                                           </tr>
                                         </tbody>
                                       </table>

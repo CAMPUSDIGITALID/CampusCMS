@@ -191,6 +191,7 @@ class UserController extends Controller
             'password' => 'required|string|min:6',
             'role' => 'required',
             'status' => 'required',
+            'instansi' => 'required'
         ], array_validation_messages());
         
         // Mengecek jika ada error
@@ -221,6 +222,7 @@ class UserController extends Controller
             $user->saldo = 0;
             $user->email_verified = 1;
             $user->last_visit = null;
+            $user->instansi = $request->instansi;
             $user->register_at = date('Y-m-d H:i:s');
             $user->save();
         }
@@ -311,6 +313,7 @@ class UserController extends Controller
             ],
             'password' => $request->password != '' ? 'required|string|min:6' : '',
             'role' => 'required',
+            'instansi'=> 'required',
             'status' => 'required',
         ], array_validation_messages());
         
@@ -337,6 +340,7 @@ class UserController extends Controller
             $user->role = $request->role;
             $user->is_admin = $role->is_admin;
             $user->status = $request->status;
+            $user->instansi = $request->instansi;
             $user->save();
         }
 
@@ -441,6 +445,7 @@ class UserController extends Controller
             'password' => $request->password != '' ? 'required|string|min:6' : '',
             'role' => 'required',
             'status' => 'required',
+            'instansi' => 'required'
         ], array_validation_messages());
         
         // Mengecek jika ada error
@@ -466,6 +471,7 @@ class UserController extends Controller
             $user->role = $request->role;
             $user->is_admin = $role->is_admin;
             $user->status = $request->status;
+            $user->instansi = $request->instansi;
             $user->save();
         }
 

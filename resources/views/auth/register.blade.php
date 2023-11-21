@@ -85,7 +85,6 @@
 							</div>
 						</div>
 
-
 					  	<p class="h6 text-center font-weight-bold mb-3 mt-5">Akun Pendaftar</p>
 
 						<div class="form-group row">

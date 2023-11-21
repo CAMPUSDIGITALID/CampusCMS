@@ -81,6 +81,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'username' => ['required', 'string', 'min:6', 'max:255', 'unique:users', 'alpha_dash'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'instansi' => ['required']
         ], array_validation_messages());
     }
 
@@ -111,6 +112,7 @@ class RegisterController extends Controller
         $user->last_visit = null;
 		$user->saldo = 0;
 		$user->register_at = date('Y-m-d H:i:s');
+        $user->instansi = $data['instansi'];
 		$user->save();
 		
 		// Get data sponsor

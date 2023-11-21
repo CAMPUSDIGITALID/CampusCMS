@@ -79,6 +79,10 @@
                             <div>{{ $user->nomor_hp }}</div>
                         </div>
                         <div class="list-group-item d-sm-flex justify-content-between px-0 py-1">
+                            <div class="font-weight-bold">Asal/Nama Sekolah/Nama Instansi</div>
+                            <div>{{ $user->instansi }}</div>
+                        </div>
+                        <div class="list-group-item d-sm-flex justify-content-between px-0 py-1">
                             <div class="font-weight-bold">Username:</div>
                             <div>{{ $user->username }}</div>
                         </div>

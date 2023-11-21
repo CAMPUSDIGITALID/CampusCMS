@@ -77,6 +77,15 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Asal/Nama Sekolah/Nama Instansi <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="instansi" class="form-control {{ $errors->has('instansi') ? 'border-danger' : '' }}" value="{{ $user->instansi }}">
+                                @if($errors->has('instansi'))
+                                <div class="small text-danger mt-1">{{ ucfirst($errors->first('instansi')) }}</div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-md-2 col-form-label">Email <span class="text-danger">*</span></label>
                             <div class="col-md-10">
                                 <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" value="{{ $user->email }}">
