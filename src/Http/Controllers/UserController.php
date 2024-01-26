@@ -50,7 +50,9 @@ class UserController extends Controller
 
 			// Return
 			return DataTables::of($users)
-			->addColumn('checkbox', '<input type="checkbox">')
+			->addColumn('checkbox', function($user){
+                return '<input name="multiselect[]" type="checkbox" id="check'.$user->id_user.'" value="'.$user->id_user.'">';
+            })
 			->addColumn('user_identity', function($user){
 				$route = $user->id_user == Auth::user()->id_user ? route('admin.profile') : route('admin.user.detail', ['id' => $user->id_user]);
 				return '
@@ -108,6 +110,15 @@ class UserController extends Controller
 				'message' => 'Forbidden!'
 			]);
 		}
+    }
+
+    public function active(Request $request)
+    {
+        $data = $request->all();
+        $multi_id = explode(',', $request->inputActive[0]);
+        
+        User::whereIn('id_user', $multi_id)->update(['status' => 1]);
+        return redirect()->route('admin.user.index')->with(['message' => 'Berhasil Aktivasi data.']);
     }
 
     /**

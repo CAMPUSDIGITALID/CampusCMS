@@ -29,9 +29,16 @@
                         <a href="{{ route('admin.user.create') }}" class="btn btn-sm btn-theme-1"><i class="fa fa-plus mr-2"></i> Tambah Data</a>
                         <a href="{{ route('admin.user.export', ['filter' => $filter]) }}" class="btn btn-sm btn-success"><i class="fa fa-file-excel-o mr-2"></i> Export ke Excel</a>
                         @if(has_access('UserController::import', Auth::user()->role, false))
-                        
                         <button id="myBtn" class="btn btn-danger">Import Excel</button>
                         @endif
+                        @if(has_access('UserController::active', Auth::user()->role, false))
+                        <form id="formMulti" class="formMulti" method="post" enctype="multipart/form-data" action="{{ route('admin.user.active') }}">
+                          @csrf
+                          <input type="hidden" id="inputActive" name="inputActive[]" value="">
+                          <button class="btn btn-success" type="submit" id="save_active" ><i class="fa fa-check"></i> Multi-Activation</button>
+                        </form>
+                        @endif
+                        
                     </div>
                     <div>
                         <select id="filter" class="form-control form-control-sm">
@@ -237,6 +244,20 @@
 @include('faturcms::template.admin._js-table')
 
 <script type="text/javascript">
+    
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    
+    $( document ).ready(function() {
+      $('#save_active').on('click',function(){
+        var val = [];
+        $(':checkbox:checked').each(function(i){
+          val[i] = $(this).val();
+        });
+        
+        $('#inputActive').attr('value',val);
+      })
+    });
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
