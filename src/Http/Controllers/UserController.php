@@ -51,7 +51,7 @@ class UserController extends Controller
 			// Return
 			return DataTables::of($users)
 			->addColumn('checkbox', function($user){
-                return '<input name="multiselect[]" type="checkbox" id="check'.$user->id_user.'" value="'.$user->id_user.'">';
+                return '<input name="multiselect[]" class="check" type="checkbox" id="check'.$user->id_user.'" value="'.$user->id_user.'">';
             })
 			->addColumn('user_identity', function($user){
 				$route = $user->id_user == Auth::user()->id_user ? route('admin.profile') : route('admin.user.detail', ['id' => $user->id_user]);
@@ -63,8 +63,8 @@ class UserController extends Controller
 				<small><i class="fa fa-phone mr-1"></i>'.$user->nomor_hp.'</small>
 				';
 			})
-			->addColumn('saldo', function($user){
-				return $user->is_admin == 0 ? number_format($user->saldo,0,',',',') : '-';
+			->addColumn('instansi', function($user){
+				return $user->instansi != null ? $user->instansi : '-';
 			})
 			->addColumn('refer', function($user){
 				if($user->is_admin == 0){
@@ -101,7 +101,7 @@ class UserController extends Controller
 				return $html;
 			})
 			->removeColumn(['password', 'tanggal_lahir', 'jenis_kelamin'])
-			->rawColumns(['checkbox', 'user_identity', 'saldo', 'refer', 'status', 'register_at', 'options'])
+			->rawColumns(['checkbox', 'user_identity', 'instansi', 'refer', 'status', 'register_at', 'options'])
 			->make(true);
 		}
 		else{
@@ -115,10 +115,25 @@ class UserController extends Controller
     public function active(Request $request)
     {
         $data = $request->all();
-        $multi_id = explode(',', $request->inputActive[0]);
         
-        User::whereIn('id_user', $multi_id)->update(['status' => 1]);
-        return redirect()->route('admin.user.index')->with(['message' => 'Berhasil Aktivasi data.']);
+        $multi_id = explode(',', $request->inputActive[0]);
+        array_shift($multi_id);
+
+        if($multi_id[0] == null){
+            return redirect()->route('admin.user.index')->with(['message' => 'Tidak Ada Data yang dipilih.']);
+        }
+        elseif($request->selectMulti == 1){
+                User::whereIn('id_user', $multi_id)->update(['status' => 1]);
+                return redirect()->route('admin.user.index')->with(['message' => 'Berhasil Aktivasi data.']);
+            
+        }
+        elseif($request->selectMulti == 2){
+                User::whereIn('id_user', $multi_id)->update(['status' => 0]);
+                return redirect()->route('admin.user.index')->with(['message' => 'Berhasil Aktivasi data.']);
+        }
+        else{
+            return redirect()->route('admin.user.index')->with(['message' => 'Aktivasi Bermasalah.']);
+        }
     }
 
     /**
