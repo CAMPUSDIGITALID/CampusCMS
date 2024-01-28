@@ -115,21 +115,21 @@ class UserController extends Controller
     public function active(Request $request)
     {
         $data = $request->all();
-        
         $multi_id = explode(',', $request->inputActive[0]);
-        array_shift($multi_id);
-
+        $multi_id[0] == "on" ? array_shift($multi_id) : $multi_id;
+        
+        
         if($multi_id[0] == null){
             return redirect()->route('admin.user.index')->with(['message' => 'Tidak Ada Data yang dipilih.']);
         }
         elseif($request->selectMulti == 1){
                 User::whereIn('id_user', $multi_id)->update(['status' => 1]);
-                return redirect()->route('admin.user.index')->with(['message' => 'Berhasil Aktivasi data.']);
+                return redirect()->route('admin.user.index')->with(['message' => 'Berhasil Aktivasi data Member.']);
             
         }
         elseif($request->selectMulti == 2){
                 User::whereIn('id_user', $multi_id)->update(['status' => 0]);
-                return redirect()->route('admin.user.index')->with(['message' => 'Berhasil Aktivasi data.']);
+                return redirect()->route('admin.user.index')->with(['message' => 'Berhasil Non-Aktif Data Member.']);
         }
         else{
             return redirect()->route('admin.user.index')->with(['message' => 'Aktivasi Bermasalah.']);

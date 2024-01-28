@@ -36,9 +36,9 @@
                           @csrf
                           <input type="hidden" id="inputActive" name="inputActive[]" value="">
                           <select name="selectMulti" id="selectMulti" class="btn btn-light">
-                            <option selected>Pilih Aksi</option>
-                            <option value="1">Multi-Activation</option>
-                            <option value="2">Multi-deactivation</option>
+                            <option selected>Pilih Aksi Aktifasi</option>
+                            <option value="1">Aktivasi Member</option>
+                            <option value="2">Non-Aktif Member</option>
                           </select>
                         </form>
                         @endif
