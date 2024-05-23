@@ -116,7 +116,8 @@ if(!function_exists('name_image')){
     function name_image(Request $request, $file, $path){
         if($request->hasFile($file)){
             $gambar = $request->file($file);
-            $nama_gambar = $gambar->getClientOriginalName();
+
+            $nama_gambar = time().'.'.$gambar->getClientOriginalExtension();
 
             //save
             $gambar->move(public_path().'/'.$path.'/',$nama_gambar);

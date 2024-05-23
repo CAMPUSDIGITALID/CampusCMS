@@ -55,7 +55,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-md-2 col-form-label">Gambar</label>
                             <div class="col-md-10">
                                 <input type="file" id="file" class="d-none" accept="image/*">
@@ -65,7 +65,7 @@
                                 <input type="hidden" name="gambar">
                                 <input type="hidden" name="gambar_url">
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label">File PDF</label>
                             <div class="col-md-10">
